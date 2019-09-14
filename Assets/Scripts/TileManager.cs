@@ -19,6 +19,8 @@ public class TileManager : MonoBehaviour {
 	private float oldLat = 0f, oldLon = 0f;
 	private float lat = 0f, lon = 0f;
 
+    public MilleniumItemManager milleniummanager;
+
 	
 
 	public float getLat {
@@ -133,7 +135,7 @@ public class TileManager : MonoBehaviour {
 			Debug.Log (x + " / " + y);*/
 		}
 
-		//pokeManager.UpdatePokemonPosition ();
+		milleniummanager.UpdateItemPosition ();
 
 		tile.GetComponent<Renderer> ().material.mainTexture = texture;
 
