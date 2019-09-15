@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/map.unity
     guid: 2339eef9c96b786498d12a4cffcdff90
+  - enabled: 1
+    path: Assets/Scenes/cardflip.unity
+    guid: 9e06db8a60536d3489ff4e6348923f08
   m_configObjects: {}
