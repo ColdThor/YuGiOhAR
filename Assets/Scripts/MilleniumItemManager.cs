@@ -38,7 +38,6 @@ public class MilleniumItemManager : MonoBehaviour {
 
 	void FlipCard(MilleniumItemType type) {
 		string t = type.ToString ();
-		//PlayerPrefs.SetString ("POKEMON_KEY", t);
 		SceneManager.LoadScene (5);
 	}
 
@@ -49,24 +48,11 @@ public class MilleniumItemManager : MonoBehaviour {
 
         MilleniumPuzzle prefab = Resources.Load ("MilleniumItems/puzzle", typeof(MilleniumPuzzle)) as MilleniumPuzzle;
         MilleniumPuzzle millenium_item = Instantiate (prefab, Vector3.zero, Quaternion.Euler(-100, 0, 0)) as MilleniumPuzzle;
-
-     
-
         millenium_item.tileManager = tileManager;
-        
         millenium_item.Init (newLat, newLon);
-
-
-
-
         items.Add (millenium_item);
 	}
 
-
-    void cardClicked()
-    {
-        SceneManager.LoadScene(5);
-    }
 
     public void UpdateItemPosition() {
 		if (items.Count == 0)

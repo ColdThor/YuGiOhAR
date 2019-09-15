@@ -64,11 +64,7 @@ public class TileManager : MonoBehaviour {
 			print("Unable to determine device location");
 			yield break;
 		}
-		else
-		{
-			print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
-		}
-
+		
 		lat = Input.location.lastData.latitude;
 		lon = Input.location.lastData.longitude;
 
@@ -167,7 +163,7 @@ public class TileManager : MonoBehaviour {
 		return result;
 	}*/
 
-	//SOURCE: http://stackoverflow.com/questions/4953150/convert-lat-longs-to-x-y-co-ordinates
+	//ZDROJ: http://stackoverflow.com/questions/4953150/convert-lat-longs-to-x-y-co-ordinates
 
 	float GD_semiMajorAxis = 6378137.000000f;
 	float GD_TranMercB     = 6356752.314245f;
@@ -247,7 +243,7 @@ public class TileManager : MonoBehaviour {
 	}
 
 	void Update() {
-		service.SetActive (!Input.location.isEnabledByUser);//DONT COPY
+		service.SetActive (!Input.location.isEnabledByUser);
 		target.position = Vector3.Lerp (target.position, new Vector3 (0,.5f, 0), 2.0f * Time.deltaTime);
 	}
 
