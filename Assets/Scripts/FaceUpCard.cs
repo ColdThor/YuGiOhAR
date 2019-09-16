@@ -41,37 +41,48 @@ namespace Assets.Scripts
 
 
             int random = UnityEngine.Random.Range(0, 21);
+
+
             Player player = new Player();
-           
-
-
-            switch(random)
+            RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json").Then(response =>
             {
-                case 0: GetComponent<SpriteRenderer>().sprite = cards[0]; FlipCard.obtained_card_string = "You´ve obtained Blue Eyes White Dragon"; player.blue_acquired = true;  break;
-                case 1: GetComponent<SpriteRenderer>().sprite = cards[1]; FlipCard.obtained_card_string = "You´ve obtained Dark Magician"; player.dark_acquired = true; break;
-                case 2: GetComponent<SpriteRenderer>().sprite = cards[2]; FlipCard.obtained_card_string = "You´ve obtained Summoned Skull"; player.skull_acquired = true; break;
-                case 3: GetComponent<SpriteRenderer>().sprite = cards[3]; FlipCard.obtained_card_string = "You´ve obtained Gaia the Fierce Knight"; player.gaia_acquired = true; break;
-                case 4: GetComponent<SpriteRenderer>().sprite = cards[4]; FlipCard.obtained_card_string = "You´ve obtained Obelisk the Tormentor"; player.obelisk_acquired = true; break;
-                case 5: GetComponent<SpriteRenderer>().sprite = cards[5]; FlipCard.obtained_card_string = "You´ve obtained Elemental Hero Neos"; player.neos_acquired = true; break;
-                case 6: GetComponent<SpriteRenderer>().sprite = cards[6]; FlipCard.obtained_card_string = "You´ve obtained Ancient Gear Golem"; player.golem_acquired = true; break;
-                case 7: GetComponent<SpriteRenderer>().sprite = cards[7]; FlipCard.obtained_card_string = "You´ve obtained Celtic Warrior"; player.celtic_acquired = true; break;
-                case 8: GetComponent<SpriteRenderer>().sprite = cards[8]; FlipCard.obtained_card_string = "You´ve obtained Cyber Dragon"; player.cyber_acquired = true; break;
-                case 9: GetComponent<SpriteRenderer>().sprite = cards[9]; FlipCard.obtained_card_string = "You´ve obtained Dark Magician Girl"; player.girl_acquired = true; break;
-                case 10: GetComponent<SpriteRenderer>().sprite = cards[10]; FlipCard.obtained_card_string = "You´ve obtained Destiny Hero Dreadmaster"; player.dreadmaster_acquired = true; break;
-                case 11: GetComponent<SpriteRenderer>().sprite = cards[11]; FlipCard.obtained_card_string = "You´ve obtained Gate Guardian"; player.gate_acquired = true; break;
-                case 12: GetComponent<SpriteRenderer>().sprite = cards[12]; FlipCard.obtained_card_string = "You´ve obtained Harpie Lady Sisters"; player.harpie_acquired = true; break;
-                case 13: GetComponent<SpriteRenderer>().sprite = cards[13]; FlipCard.obtained_card_string = "You´ve obtained Rainbow Dragon"; player.rainbow_acquired = true; break;
-                case 14: GetComponent<SpriteRenderer>().sprite = cards[14]; FlipCard.obtained_card_string = "You´ve obtained Red Eyes Black Dragon"; player.red_acquired = true; break;
-                case 15: GetComponent<SpriteRenderer>().sprite = cards[15]; FlipCard.obtained_card_string = "You´ve obtained King Rex"; player.rex_acquired = true; break;
-                case 16: GetComponent<SpriteRenderer>().sprite = cards[16]; FlipCard.obtained_card_string = "You´ve obtained Slifer the Sky Dragon"; player.slifer_acquired = true; break;
-                case 17: GetComponent<SpriteRenderer>().sprite = cards[17]; FlipCard.obtained_card_string = "You´ve obtained Time Wizard"; player.time_acquired = true; break;
-                case 18: GetComponent<SpriteRenderer>().sprite = cards[18]; FlipCard.obtained_card_string = "You´ve obtained Water Dragon"; player.water_acquired = true; break;
-                case 19: GetComponent<SpriteRenderer>().sprite = cards[19]; FlipCard.obtained_card_string = "You´ve obtained Winged Dragon of Ra"; player.ra_acquired = true; break;
-                case 20: GetComponent<SpriteRenderer>().sprite = cards[20]; FlipCard.obtained_card_string = "You´ve obtained Yubel"; player.yubel_acquired = true; break;
+
+                player = response;
+            });
+
+            switch (random)
+            {
+                case 0: GetComponent<SpriteRenderer>().sprite = cards[0]; FlipCard.obtained_card_string = "You´ve obtained Blue Eyes White Dragon"; player.blue_acquired = true; googleSignIn.userdata[0] = true; break;
+                case 1: GetComponent<SpriteRenderer>().sprite = cards[1]; FlipCard.obtained_card_string = "You´ve obtained Dark Magician"; player.dark_acquired = true; googleSignIn.userdata[1] = true; break;
+                case 2: GetComponent<SpriteRenderer>().sprite = cards[2]; FlipCard.obtained_card_string = "You´ve obtained Summoned Skull"; player.skull_acquired = true; googleSignIn.userdata[2] = true; break;
+                case 3: GetComponent<SpriteRenderer>().sprite = cards[3]; FlipCard.obtained_card_string = "You´ve obtained Gaia the Fierce Knight"; player.gaia_acquired = true; googleSignIn.userdata[3] = true; break;
+                case 4: GetComponent<SpriteRenderer>().sprite = cards[4]; FlipCard.obtained_card_string = "You´ve obtained Obelisk the Tormentor"; player.obelisk_acquired = true; googleSignIn.userdata[4] = true; break;
+                case 5: GetComponent<SpriteRenderer>().sprite = cards[5]; FlipCard.obtained_card_string = "You´ve obtained Elemental Hero Neos"; player.neos_acquired = true; googleSignIn.userdata[5] = true; break;
+                case 6: GetComponent<SpriteRenderer>().sprite = cards[6]; FlipCard.obtained_card_string = "You´ve obtained Ancient Gear Golem"; player.golem_acquired = true; googleSignIn.userdata[6] = true; break;
+                case 7: GetComponent<SpriteRenderer>().sprite = cards[7]; FlipCard.obtained_card_string = "You´ve obtained Celtic Warrior"; player.celtic_acquired = true; googleSignIn.userdata[7] = true; break;
+                case 8: GetComponent<SpriteRenderer>().sprite = cards[8]; FlipCard.obtained_card_string = "You´ve obtained Cyber Dragon"; player.cyber_acquired = true; googleSignIn.userdata[8] = true; break;
+                case 9: GetComponent<SpriteRenderer>().sprite = cards[9]; FlipCard.obtained_card_string = "You´ve obtained Dark Magician Girl"; player.girl_acquired = true; googleSignIn.userdata[9] = true; break;
+                case 10: GetComponent<SpriteRenderer>().sprite = cards[10]; FlipCard.obtained_card_string = "You´ve obtained Destiny Hero Dreadmaster"; player.dreadmaster_acquired = true; googleSignIn.userdata[10] = true; break;
+                case 11: GetComponent<SpriteRenderer>().sprite = cards[11]; FlipCard.obtained_card_string = "You´ve obtained Gate Guardian"; player.gate_acquired = true; googleSignIn.userdata[11] = true; break;
+                case 12: GetComponent<SpriteRenderer>().sprite = cards[12]; FlipCard.obtained_card_string = "You´ve obtained Harpie Lady Sisters"; player.harpie_acquired = true; googleSignIn.userdata[12] = true; break;
+                case 13: GetComponent<SpriteRenderer>().sprite = cards[13]; FlipCard.obtained_card_string = "You´ve obtained Rainbow Dragon"; player.rainbow_acquired = true; googleSignIn.userdata[13] = true; break;
+                case 14: GetComponent<SpriteRenderer>().sprite = cards[14]; FlipCard.obtained_card_string = "You´ve obtained Red Eyes Black Dragon"; player.red_acquired = true; googleSignIn.userdata[14] = true; break;
+                case 15: GetComponent<SpriteRenderer>().sprite = cards[15]; FlipCard.obtained_card_string = "You´ve obtained King Rex"; player.rex_acquired = true; googleSignIn.userdata[15] = true; break;
+                case 16: GetComponent<SpriteRenderer>().sprite = cards[16]; FlipCard.obtained_card_string = "You´ve obtained Slifer the Sky Dragon"; player.slifer_acquired = true; googleSignIn.userdata[16] = true; break;
+                case 17: GetComponent<SpriteRenderer>().sprite = cards[17]; FlipCard.obtained_card_string = "You´ve obtained Time Wizard"; player.time_acquired = true; googleSignIn.userdata[17] = true; break;
+                case 18: GetComponent<SpriteRenderer>().sprite = cards[18]; FlipCard.obtained_card_string = "You´ve obtained Water Dragon"; player.water_acquired = true; googleSignIn.userdata[18] = true; break;
+                case 19: GetComponent<SpriteRenderer>().sprite = cards[19]; FlipCard.obtained_card_string = "You´ve obtained Winged Dragon of Ra"; player.ra_acquired = true; googleSignIn.userdata[19] = true; break;
+                case 20: GetComponent<SpriteRenderer>().sprite = cards[20]; FlipCard.obtained_card_string = "You´ve obtained Yubel"; player.yubel_acquired = true; googleSignIn.userdata[20] = true; break;
 
             }
 
-            RestClient.Post("https://yu-gi-oh-ar.firebaseio.com/" + player.userid + ".json", player );
+
+
+            RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
+
+            googleSignIn gsi = new googleSignIn();
+            gsi.googleSignInButton();
+
 
 
             var bounds = GetComponent<SpriteRenderer>().sprite.bounds;

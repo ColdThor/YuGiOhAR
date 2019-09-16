@@ -64,6 +64,14 @@ public class googleSignIn : MonoBehaviour
                 audio.gameObject.SetActive(false);
                 nametext.text = "YOU MUST BE LOGGED IN TO VIEW YOUR COLLECTION";
             }
+            if (LoadMenu.camefromdiscover == true)
+            {
+                nametext.fontSize = 25;
+                options.gameObject.SetActive(false);
+                toggle.gameObject.SetActive(false);
+                audio.gameObject.SetActive(false);
+                nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER NEW CARDS";
+            }
         }
 
     }
@@ -127,7 +135,7 @@ public class googleSignIn : MonoBehaviour
         {
             if (response == null)
             {
-                player.newCollection();
+                
                 RestClient.Post("https://yu-gi-oh-ar.firebaseio.com/" + userid + ".json", player);
             }
             getUserData();
@@ -135,7 +143,7 @@ public class googleSignIn : MonoBehaviour
     }
 
 
-    void getUserData()
+   public void getUserData()
     {
 
         Player player = new Player();
@@ -170,10 +178,14 @@ public class googleSignIn : MonoBehaviour
 
             if (LoadMenu.camefromcollection == true)
             {
-
                 LoadMenu.camefromcollection = false;
-             
                 SceneManager.LoadScene(3);
+            }
+
+            if (LoadMenu.camefromdiscover == true)
+            {
+                LoadMenu.camefromdiscover = false;
+                SceneManager.LoadScene(7);
             }
 
         });
@@ -230,8 +242,22 @@ public class googleSignIn : MonoBehaviour
 
                          } else
                          {
-                             nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
-                             signoutbutton.gameObject.SetActive(true);
+
+                             if (LoadMenu.camefromdiscover == true)
+                             {
+                                 nametext.text = "LOADING MAP";
+                                 options.text = "";
+                                 signoutbutton.gameObject.SetActive(false);
+                                 toggle.gameObject.SetActive(false);
+                                 audio.gameObject.SetActive(false);
+                                 back.gameObject.SetActive(false);
+
+                             } else {
+                                 nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
+                                 signoutbutton.gameObject.SetActive(true);
+                             }
+
+                             
                          }
                       
                          username = FBuser.DisplayName.ToString();
