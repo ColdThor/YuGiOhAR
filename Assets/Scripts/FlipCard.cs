@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using Proyecto26;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlipCard : MonoBehaviour
 {
@@ -13,6 +16,12 @@ public class FlipCard : MonoBehaviour
 
     float waitTime;
     bool IsAnimationProcessing = false;
+
+    public Button back;
+    public Text obtained;
+    public static string obtained_card_string = "";
+    private SpriteRenderer spriteR;
+
 
 
     void Start()
@@ -54,8 +63,14 @@ public class FlipCard : MonoBehaviour
 
             if(FLIP_LIMIT_DEGREE < transform.eulerAngles.y)
             {
+                obtained.text = obtained_card_string;
+
                 transform.Rotate(new Vector3(0, -degree, 0));
-              //  SHOW TEXT, SHOW BACK & ADD TO COLLECTION
+
+                obtained.gameObject.SetActive(true);
+                back.gameObject.SetActive(true);
+
+
             }
 
 

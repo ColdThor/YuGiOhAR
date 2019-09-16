@@ -127,6 +127,7 @@ public class googleSignIn : MonoBehaviour
         {
             if (response == null)
             {
+                player.newCollection();
                 RestClient.Post("https://yu-gi-oh-ar.firebaseio.com/" + userid + ".json", player);
             }
             getUserData();
