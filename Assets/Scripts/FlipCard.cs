@@ -55,7 +55,7 @@ public class FlipCard : MonoBehaviour
             if(FLIP_LIMIT_DEGREE < transform.eulerAngles.y)
             {
                 transform.Rotate(new Vector3(0, -degree, 0));
-                done = true;
+              //  SHOW TEXT, SHOW BACK & ADD TO COLLECTION
             }
 
 
