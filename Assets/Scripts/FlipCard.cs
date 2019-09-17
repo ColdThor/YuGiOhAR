@@ -70,9 +70,7 @@ public class FlipCard : MonoBehaviour
                 obtained.gameObject.SetActive(true);
                 back.gameObject.SetActive(true);
 
-
             }
-
 
             yield return new WaitForSeconds(waitTime);
         }
