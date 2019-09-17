@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 public class googleSignIn : MonoBehaviour
 {
 
-    private static FirebaseAuth auth;
+    public static FirebaseAuth auth;
     private FirebaseUser FBuser;
 
     public Button signinbutton;
@@ -120,6 +120,7 @@ public class googleSignIn : MonoBehaviour
     public void googleLogOutButton()
     {
         auth.SignOut();
+        FBuser = null;
         signoutbutton.gameObject.SetActive(false);
         signinbutton.gameObject.SetActive(true);
         userid = null;
