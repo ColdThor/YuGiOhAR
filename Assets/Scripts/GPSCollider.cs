@@ -5,11 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GPSCollider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -24,7 +20,7 @@ public class GPSCollider : MonoBehaviour
                 if (hit.transform.tag == "MilleniumItem")
                 {
                     MilleniumPuzzle item = hit.transform.GetComponent<MilleniumPuzzle>();
-                    SceneManager.LoadScene(8);
+                    SceneManager.LoadScene(4);
                 }
             }
         }

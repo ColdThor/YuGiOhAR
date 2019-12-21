@@ -566,8 +566,8 @@ MonoBehaviour:
       LocationInputType: 0
       LocationData: {fileID: 0}
       Location:
-        Latitude: 48.3222
-        Longitude: 18.0949
+        Latitude: 48.313861
+        Longitude: 18.088333
         Altitude: 0
         AltitudeMode: 0
         Label: 
@@ -675,24 +675,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94f5de1d09ace134dbf88b3122d512a2, type: 3}
---- !u!1 &1288831770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 106314911077892920, guid: 94f5de1d09ace134dbf88b3122d512a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1288831768}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1288831771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288831770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643a25e6941e55c448d61fe22bac255c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1433569883
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c662ed2486d3b284983221c39907f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneIndex: 5
+  SceneIndex: 2
 --- !u!4 &1943306212
 Transform:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TileManager : MonoBehaviour {
 	[SerializeField]
@@ -16,12 +17,18 @@ public class TileManager : MonoBehaviour {
 	[SerializeField]
 	private GameObject service;
 
+	[SerializeField]
+	private Text text;
+
+	[SerializeField]
+	private GameObject background;
+
 	private float oldLat = 0f, oldLon = 0f;
 	private float lat = 0f, lon = 0f;
 
     public MilleniumItemManager milleniummanager;
+	private float timeLeft = 4.0f;
 
-	
 
 	public float getLat {
 		get {
@@ -45,6 +52,7 @@ public class TileManager : MonoBehaviour {
         ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
 
         Input.location.Start(10f, 5f);
+		
 
 		int maxWait = 20;
 		while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
@@ -67,6 +75,10 @@ public class TileManager : MonoBehaviour {
 		
 		lat = Input.location.lastData.latitude;
 		lon = Input.location.lastData.longitude;
+
+
+
+	
 
 		StartCoroutine (loadTiles (_settings.zoom));
 
@@ -118,6 +130,8 @@ public class TileManager : MonoBehaviour {
 			position.z *= 0.123043f;
 
 			target.position = position;
+		
+			
 
 			/*float[] ll = px (lat, lon, _settings.zoom);
 			float[] oll = px (oldLat, oldLon, _settings.zoom);
@@ -243,7 +257,16 @@ public class TileManager : MonoBehaviour {
 	}
 
 	void Update() {
-		service.SetActive (!Input.location.isEnabledByUser);
+		if (Input.location.isEnabledByUser)
+		{
+			text.text = "PLEASE WAIT";
+			timeLeft -= Time.deltaTime;
+			if (timeLeft < 0)
+			{
+				service.SetActive(!Input.location.isEnabledByUser);
+				background.SetActive(!Input.location.isEnabledByUser);
+			}
+		}
 		target.position = Vector3.Lerp (target.position, new Vector3 (0,.5f, 0), 2.0f * Time.deltaTime);
 	}
 

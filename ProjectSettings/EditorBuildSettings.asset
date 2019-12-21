@@ -6,26 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/mainmenu.unity
+    path: Assets/Scenes/menu.unity
     guid: c1c586cb0c233b34fb08c9fd1f189681
   - enabled: 1
-    path: Assets/Scenes/game.unity
+    path: Assets/Scenes/summon.unity
     guid: a8a4953b64e4a1740830850c6e1f4cf7
-  - enabled: 1
-    path: Assets/Scenes/playmenu.unity
-    guid: 829f07ed348ef544d89b23a68e79590b
-  - enabled: 1
-    path: Assets/Scenes/collection.unity
-    guid: 4ecf9e1a8bf44824c97cce63b2d635be
-  - enabled: 1
-    path: Assets/Scenes/cardscene.unity
-    guid: d959a13b9078c7a4bae3e54c8551c658
   - enabled: 1
     path: Assets/Scenes/discover.unity
     guid: e363b622e145f0c458ad91ec8a48bf78
-  - enabled: 1
-    path: Assets/Scenes/options.unity
-    guid: c7242d7ed054aeb4e936439f8730b1b3
   - enabled: 1
     path: Assets/Scenes/map.unity
     guid: 2339eef9c96b786498d12a4cffcdff90

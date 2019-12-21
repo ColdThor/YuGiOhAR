@@ -9,12 +9,18 @@ using Proyecto26;
 
 public class PopulateCollection : MonoBehaviour
 {
-
+    public Canvas main;
+    public Canvas game;
+    public Canvas options;
+    public Canvas collection;
+    public Canvas card_scene;
 
 
     public static int card_clicked;
 
     public GameObject card;
+    private LoadMenu lm;
+    
 
     public int pocet;
 
@@ -22,7 +28,7 @@ public class PopulateCollection : MonoBehaviour
     public static Sprite[] cards;
     public static Sprite[] unobtained;
 
-
+    
 
 
 
@@ -31,11 +37,7 @@ public class PopulateCollection : MonoBehaviour
 
     void Start()
     {
-    
-      
-
         Populate();
-
     }
 
    
@@ -139,16 +141,17 @@ public class PopulateCollection : MonoBehaviour
             UnityEngine.Events.UnityAction action1 = () => { cardClicked(index); };
             newObj[i].GetComponent<Button>().onClick.AddListener(action1);
 
-            if(googleSignIn.userdata[i] == false)
+            if(googleSignIn.userdata != null && googleSignIn.userdata[i] == false)
             {
                 newObj[i].GetComponent<Image>().sprite = unobtained[i];
             } else
             {
                 newObj[i].GetComponent<Image>().sprite = cards[i];
             }
+
+
             
 
-           
 
         }
 
@@ -156,7 +159,9 @@ public class PopulateCollection : MonoBehaviour
         void cardClicked(int index)
         {
             card_clicked = index;
-            SceneManager.LoadScene(4);
+            lm = new LoadMenu();
+            lm.showFullScreenCard();
+            
         }
 
 

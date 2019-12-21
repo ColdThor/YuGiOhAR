@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThemeSongScript : MonoBehaviour
 {
 
-   
+
 
 
 
@@ -24,11 +24,12 @@ public class ThemeSongScript : MonoBehaviour
 
     void Awake()
     {
-        if( instance != null && instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
             return;
-        } else
+        }
+        else
         {
             instance = this;
         }
@@ -38,6 +39,6 @@ public class ThemeSongScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 }

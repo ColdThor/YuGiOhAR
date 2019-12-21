@@ -6,14 +6,6 @@ using UnityEngine.UI;
 public class AudioOnOff : MonoBehaviour
 {
 
-  
-
-
-    void Start()
-    {
-     
-    }
-
 
     public void toggleChanged(Toggle audiotoggle)
     {
@@ -27,15 +19,5 @@ public class AudioOnOff : MonoBehaviour
             PlayerPrefs.SetString("Music", "no");
             ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Stop();
         }
-    }
-
-
-
-
-
-
-    void Update()
-    {
-    
     }
 }

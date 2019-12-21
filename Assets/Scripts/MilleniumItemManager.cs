@@ -38,7 +38,7 @@ public class MilleniumItemManager : MonoBehaviour {
 
 	void FlipCard(MilleniumItemType type) {
 		string t = type.ToString ();
-		SceneManager.LoadScene (5);
+		SceneManager.LoadScene (2);
 	}
 
 	void SpawnItem() {

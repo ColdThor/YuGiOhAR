@@ -8,11 +8,11 @@ public class AndroidBackButton : MonoBehaviour
 
 
     public int SceneIndex;
+    public static bool gotogame = false;
+    
 
-    void Start()
-    {
-        
-    }
+  
+
 
     // Update is called once per frame
     void Update()
@@ -21,10 +21,28 @@ public class AndroidBackButton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
-            if (SceneIndex == 4)
+            if (SceneIndex == 0)
             {
+                if (GameObject.Find("Canvas_main").GetComponent<Canvas>().isActiveAndEnabled)
+                {
+                    Application.Quit();
+                }
+                else
+                {
+                    GameObject.Find("Canvas_main").GetComponent<Canvas>().enabled = true;
+                    GameObject.Find("Canvas_game").GetComponent<Canvas>().enabled = false;
+                    GameObject.Find("Canvas_collection").GetComponent<Canvas>().enabled = false;
+                    GameObject.Find("Canvas_options").GetComponent<Canvas>().enabled = false;
+                    GameObject.Find("Canvas_fullscreencard").GetComponent<Canvas>().enabled = false;
+                }
 
-                SceneManager.LoadScene(2);
+            }
+
+
+            if (SceneIndex == 1)
+            {
+                gotogame = true;
+                SceneManager.LoadScene(0);
                 var music = PlayerPrefs.GetString("Music", "Default value");
                 if (music.Equals("yes"))
                 {
@@ -32,25 +50,19 @@ public class AndroidBackButton : MonoBehaviour
                 }
             }
 
+         
+       
+
             if (SceneIndex == 2)
             {
+                SceneManager.LoadScene(3);
+            }
+
+
+                if (SceneIndex == 3)
+            {
                 SceneManager.LoadScene(0);
-            }
-            if (SceneIndex == 0)
-            {
-                Application.Quit();
-            }
-
-
-            if (SceneIndex == 5)
-            {
-                SceneManager.LoadScene(7);
-              
-            }
-
-            if (SceneIndex == 7)
-            {
-                SceneManager.LoadScene(2);
+                gotogame = true;
                 var music = PlayerPrefs.GetString("Music", "Default value");
                 if (music.Equals("yes"))
                 {

@@ -9,6 +9,7 @@ using Proyecto26;
 using System;
 using UnityEngine.SceneManagement;
 
+
 public class googleSignIn : MonoBehaviour
 {
 
@@ -20,7 +21,7 @@ public class googleSignIn : MonoBehaviour
     public Text nametext;
     public Text options;
     public Toggle toggle;
-    public Image audio;
+    public Image audio_img;
     public Button back;
 
     public static string username;
@@ -30,13 +31,14 @@ public class googleSignIn : MonoBehaviour
 
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         InitializeFirebase();
-
+        nametext.text = "";
         toggle.gameObject.SetActive(true);
-        audio.gameObject.SetActive(true);
+        audio_img.gameObject.SetActive(true);
         back.gameObject.SetActive(true);
 
 
@@ -47,6 +49,7 @@ public class googleSignIn : MonoBehaviour
         {
             signinbutton.gameObject.SetActive(false);
             signoutbutton.gameObject.SetActive(true);
+            nametext.fontSize = 20;
             nametext.text = "WELCOME " + username;
         } else
         {
@@ -59,17 +62,17 @@ public class googleSignIn : MonoBehaviour
             if(LoadMenu.camefromcollection == true)
             {
                 nametext.fontSize = 25;
-                options.gameObject.SetActive(false);
-                toggle.gameObject.SetActive(false);
-                audio.gameObject.SetActive(false);
+                options.enabled = false;
+                toggle.enabled = false;
+                audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO VIEW YOUR COLLECTION";
             }
             if (LoadMenu.camefromdiscover == true)
             {
                 nametext.fontSize = 25;
-                options.gameObject.SetActive(false);
-                toggle.gameObject.SetActive(false);
-                audio.gameObject.SetActive(false);
+                options.enabled = false;
+                toggle.enabled = false;
+                audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER NEW CARDS";
             }
         }
@@ -121,10 +124,10 @@ public class googleSignIn : MonoBehaviour
     {
         auth.SignOut();
         FBuser = null;
-        signoutbutton.gameObject.SetActive(false);
-        signinbutton.gameObject.SetActive(true);
         userid = null;
         username = null;
+        signinbutton.gameObject.SetActive(true);
+        signoutbutton.gameObject.SetActive(false);
         nametext.text = "";
     }
 
@@ -177,16 +180,21 @@ public class googleSignIn : MonoBehaviour
 
          
 
+
             if (LoadMenu.camefromcollection == true)
             {
                 LoadMenu.camefromcollection = false;
-                SceneManager.LoadScene(3);
+                GameObject.Find("Canvas_main").GetComponent<Canvas>().enabled = false;
+                GameObject.Find("Canvas_game").GetComponent<Canvas>().enabled = false;
+                GameObject.Find("Canvas_collection").GetComponent<Canvas>().enabled = true;
+                GameObject.Find("Canvas_options").GetComponent<Canvas>().enabled = false;
+                GameObject.Find("Canvas_fullscreencard").GetComponent<Canvas>().enabled = false;
             }
 
             if (LoadMenu.camefromdiscover == true)
             {
                 LoadMenu.camefromdiscover = false;
-                SceneManager.LoadScene(7);
+                SceneManager.LoadScene(3);
             }
 
         });
@@ -197,10 +205,17 @@ public class googleSignIn : MonoBehaviour
 
     public void googleSignInButton()
      {
-        Debug.Log("CLICKED");
    
-
         Task<GoogleSignInUser> signIn = GoogleSignIn.DefaultInstance.SignIn();
+
+        try
+        {
+            auth.SignOut();
+            FBuser = null;
+            userid = null;
+            username = null;
+        } catch(Exception e) { Debug.Log(e); }
+
 
          TaskCompletionSource<FirebaseUser> signInCompleted = new TaskCompletionSource<FirebaseUser>();
         signIn.ContinueWith(task =>
@@ -234,14 +249,16 @@ public class googleSignIn : MonoBehaviour
                          signoutbutton.gameObject.SetActive(true);
                          if(LoadMenu.camefromcollection == true)
                          {
-                             nametext.text = "LOADING COLLECTION";
-                             options.text = "";
-                             signoutbutton.gameObject.SetActive(false);
-                             toggle.gameObject.SetActive(false);
-                             audio.gameObject.SetActive(false);
-                             back.gameObject.SetActive(false);
+                                nametext.text = "LOADING COLLECTION";
+                                options.text = "";
+                                signoutbutton.gameObject.SetActive(false);
+                                toggle.enabled = false;
+                                audio_img.enabled = false;
+                                back.gameObject.SetActive(false);
 
-                         } else
+
+                         }
+                         else
                          {
 
                              if (LoadMenu.camefromdiscover == true)
@@ -249,8 +266,8 @@ public class googleSignIn : MonoBehaviour
                                  nametext.text = "LOADING MAP";
                                  options.text = "";
                                  signoutbutton.gameObject.SetActive(false);
-                                 toggle.gameObject.SetActive(false);
-                                 audio.gameObject.SetActive(false);
+                                 toggle.enabled = false;
+                                 audio_img.enabled = false;
                                  back.gameObject.SetActive(false);
 
                              } else {

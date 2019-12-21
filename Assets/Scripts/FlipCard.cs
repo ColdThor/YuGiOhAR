@@ -29,13 +29,6 @@ public class FlipCard : MonoBehaviour
         waitTime = 1.0f / fps;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     void OnMouseDown()
     {
        if(IsAnimationProcessing)
