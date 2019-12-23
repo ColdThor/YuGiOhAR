@@ -96,7 +96,7 @@ public class MilleniumItemManager : MonoBehaviour {
 			
 
 
-				MilleniumPuzzle prefab = Resources.Load("MilleniumItems/puzzle", typeof(MilleniumPuzzle)) as MilleniumPuzzle;
+			MilleniumPuzzle prefab = Resources.Load("MilleniumItems/puzzle", typeof(MilleniumPuzzle)) as MilleniumPuzzle;
 			MilleniumPuzzle millenium_item = Instantiate(prefab, Vector3.zero, Quaternion.Euler(-100, 0, 0)) as MilleniumPuzzle;
 			millenium_item.tileManager = tileManager;
 
