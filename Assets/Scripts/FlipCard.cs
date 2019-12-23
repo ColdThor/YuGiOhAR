@@ -20,7 +20,6 @@ public class FlipCard : MonoBehaviour
     public Button back;
     public Text obtained;
     public static string obtained_card_string = "";
-    private SpriteRenderer spriteR;
 
 
 

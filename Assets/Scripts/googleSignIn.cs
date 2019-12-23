@@ -28,6 +28,7 @@ public class googleSignIn : MonoBehaviour
     public static string userid;
 
     public static Boolean[] userdata;
+    public static Boolean[] locationdata;
 
 
 
@@ -153,6 +154,7 @@ public class googleSignIn : MonoBehaviour
         Player player = new Player();
 
         userdata = new Boolean[21];
+        locationdata = new Boolean[21];
         RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + userid + ".json").Then(response =>
         {
             player = response;
@@ -178,7 +180,31 @@ public class googleSignIn : MonoBehaviour
             if (player.ra_acquired == false) { userdata[19] = false; } else { userdata[19] = true; }
             if (player.yubel_acquired == false) { userdata[20] = false; } else { userdata[20] = true; }
 
-         
+
+            if (player.mlyny == false) { locationdata[0] = false; } else { locationdata[0] = true; }
+            if (player.ukf == false) { locationdata[1] = false; } else { locationdata[1] = true; }
+            if (player.marian == false) { locationdata[2] = false; } else { locationdata[2] = true; }
+            if (player.kniznica == false) { locationdata[3] = false; } else { locationdata[3] = true; }
+            if (player.amfiteater == false) { locationdata[4] = false; } else { locationdata[4] = true; }
+            if (player.pyramida == false) { locationdata[5] = false; } else { locationdata[5] = true; }
+
+            if (player.agro == false) { locationdata[6] = false; } else { locationdata[6] = true; }
+            if (player.kalvaria == false) { locationdata[7] = false; } else { locationdata[7] = true; }
+            if (player.hala == false) { locationdata[8] = false; } else { locationdata[8] = true; }
+            if (player.tesco== false) { locationdata[9] = false; } else { locationdata[9] = true; }
+            if (player.hidepark == false) { locationdata[10] = false; } else { locationdata[10] = true; }
+            if (player.zaba == false) { locationdata[11] = false; } else { locationdata[11] = true; }
+
+            if (player.kostol== false) { locationdata[12] = false; } else { locationdata[12] = true; }
+            if (player.hotel == false) { locationdata[13] = false; } else { locationdata[13] = true; }
+            if (player.mostna == false) { locationdata[14] = false; } else { locationdata[14] = true; }
+            if (player.fontana == false) { locationdata[15] = false; } else { locationdata[15] = true; }
+            if (player.hrad == false) { locationdata[16] = false; } else { locationdata[16] = true; }
+            if (player.corgon == false) { locationdata[17] = false; } else { locationdata[17] = true; }
+            if (player.lavicka == false) { locationdata[18] = false; } else { locationdata[18] = true; }
+            if (player.epicure == false) { locationdata[19] = false; } else { locationdata[19] = true; }
+            if (player.spu == false) { locationdata[20] = false; } else { locationdata[20] = true; }
+
 
 
             if (LoadMenu.camefromcollection == true)

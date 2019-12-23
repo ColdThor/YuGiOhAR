@@ -872,9 +872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537ea023c1dde1f40827833df35f249f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitSpawnTime: 5
-  minIntervalTime: 5
-  maxIntervalTime: 15
+  count: 21
 --- !u!4 &1242110134
 Transform:
   m_ObjectHideFlags: 0

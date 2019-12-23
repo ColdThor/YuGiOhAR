@@ -34,6 +34,30 @@ public class Player
     public Boolean yubel_acquired;
 
 
+    public Boolean mlyny;
+    public Boolean ukf;
+    public Boolean marian;
+    public Boolean kniznica;
+    public Boolean amfiteater;
+    public Boolean pyramida;
+    public Boolean agro;
+    public Boolean kalvaria;
+    public Boolean hala;
+    public Boolean tesco;
+    public Boolean hidepark;
+    public Boolean zaba;
+    public Boolean kostol;
+    public Boolean hotel;
+    public Boolean mostna;
+    public Boolean fontana;
+    public Boolean hrad;
+    public Boolean corgon;
+    public Boolean lavicka;
+    public Boolean epicure;
+    public Boolean spu;
+
+
+
 
     public Player()
     {
@@ -60,7 +84,27 @@ public class Player
         water_acquired = false;
         ra_acquired = false;
         yubel_acquired = false;
-
+        mlyny = false;
+        ukf = false;
+        marian = false;
+        kniznica = false;
+        amfiteater = false;
+        pyramida = false;
+        agro = false;
+        kalvaria = false;
+        hala = false;
+        tesco = false;
+        hidepark = false;
+        zaba = false;
+        kostol = false;
+        hotel = false;
+        mostna = false;
+        fontana = false;
+        hrad = false;
+        corgon = false;
+        lavicka = false;
+        epicure = false;
+        spu = false;
     }
 
    
