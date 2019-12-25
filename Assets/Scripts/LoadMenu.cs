@@ -83,12 +83,12 @@ public class LoadMenu : MonoBehaviour
 
         if (SceneIndex == 3)
         {
-            main.enabled = false;
-            game.enabled = false;
-            card_scene.enabled = false;
-            options.enabled = false;
+          
             if (googleSignIn.userid == null)
             {
+                main.enabled = false;
+                game.enabled = false;
+                card_scene.enabled = false;
                 camefromdiscover = true;
                 options.enabled = true;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER";
