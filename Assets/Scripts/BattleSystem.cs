@@ -22,22 +22,47 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public Text specialattack;
+    public Text dialogueText2;
+
     public string enemy_special_attack = "";
     public string player_special_attack = "";
 
     public Text dialogueText;
 
+    public GameObject actionbar;
+    public GameObject attackbar;
+
+
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
+
+
+    public AudioSource battlemusic;
+    public AudioSource enemy_attack;
+    public AudioSource player_attack;
   
     void Start()
     {
         state = BattleState.START;
+        attackbar.SetActive(false);
+        actionbar.SetActive(true);
+        
+
         StartCoroutine(setupBattle());
+
+
+        var music = PlayerPrefs.GetString("Music", "Default value");
+        if (music.Equals("yes"))
+        {
+            Instantiate(battlemusic);
+        }
+       
     }
 
 
-  IEnumerator setupBattle()
+
+    IEnumerator setupBattle()
     {
        GameObject playerGO = Instantiate(player);
        playerUnit = playerGO.GetComponent<Unit>();
@@ -66,16 +91,67 @@ public class BattleSystem : MonoBehaviour
     {
         if(state != BattleState.PLAYERTURN)
             return;
-
-        StartCoroutine(PlayerAttack());
+        attackbar.SetActive(true);
+        specialattack.text = "Special (" + playerUnit.special_mana_cost + " mana)";
+        actionbar.SetActive(false);
+        
     }
 
-    IEnumerator PlayerAttack()
+
+    public void onAttackChoice(bool choice)
     {
-       bool isDead = enemyUnit.takeDamage(playerUnit.damage);
+        
+        if (choice && playerUnit.currentMana < playerUnit.special_mana_cost)
+        {
+            dialogueText2.text = "You dont have enough mana!";
+        } 
+        else
+        StartCoroutine(PlayerAttack(choice));
+    }
+
+
+    public void onBack()
+    {
+        if (state != BattleState.PLAYERTURN)
+            return;
+
+        dialogueText2.text = "Choose your attack...";
+        attackbar.SetActive(false);
+        actionbar.SetActive(true);
+    }
+
+
+    IEnumerator PlayerAttack(bool special)
+    {
+        var mydamage = playerUnit.damage;
+
+        if (special)
+        {
+            mydamage *= 2;
+            playerUnit.useMana(playerUnit.special_mana_cost);
+            playerHUD.setMana(playerUnit.currentMana);
+        }
+   
+
+        if(enemyUnit.isDefending)
+        {
+            mydamage = mydamage / 60;
+            enemyUnit.isDefending = false;
+        }
+
+        Debug.Log("Damage given: " + mydamage);
+
+       bool isDead = enemyUnit.takeDamage(mydamage);
 
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = player_special_attack +" attack!";
+
+        Handheld.Vibrate();
+
+        player_attack.Play();
+
+        attackbar.SetActive(false);
+        actionbar.SetActive(true);
 
         yield return new WaitForSeconds(2f);
 
@@ -89,6 +165,7 @@ public class BattleSystem : MonoBehaviour
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
+
 
         yield return new WaitForSeconds(2f);
     }
@@ -106,13 +183,51 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.unitName + " uses " + enemy_special_attack +"!";
 
-        yield return new WaitForSeconds(1f);
+        int random = UnityEngine.Random.Range(0, 3);
+        bool isDead = false;
+        var mydamage = enemyUnit.damage;
+        Debug.Log("Random is: " + random);
 
-        bool isDead = playerUnit.takeDamage(enemyUnit.damage);
+        if (random == 1 || random == 0)
+        {
+            if(random == 1)
+            {
+                mydamage *= 2;
+                enemyUnit.useMana(enemyUnit.special_mana_cost);
+                enemyHUD.setMana(enemyUnit.currentMana);
 
-        playerHUD.setHP(playerUnit.currentHP);
+            }
+            enemy_attack.Play();
+            dialogueText.text = enemyUnit.unitName + " uses " + enemy_special_attack + "!";
+            Handheld.Vibrate();
+
+            if (playerUnit.isDefending)
+            {
+                playerUnit.isDefending = false;
+                mydamage = mydamage / 60;   
+            }
+
+            
+
+            isDead = playerUnit.takeDamage(mydamage);
+
+            playerHUD.setHP(playerUnit.currentHP);
+        }
+
+        if(random == 2)
+        {
+            enemyUnit.Defend();
+            enemyUnit.currentMana += 30;
+            enemyHUD.setMana(enemyUnit.currentMana);
+            dialogueText.text = enemyUnit.unitName + " defense mode!";
+        }
+
+     
+
+
+
+       
 
         yield return new WaitForSeconds(1f);
 
@@ -138,9 +253,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerDefend()
     {
-        playerUnit.Defend(6000);
-        playerHUD.setHP(playerUnit.currentHP);
-
+        playerUnit.Defend();
+        playerUnit.currentMana += 30;
+        playerHUD.setMana(playerUnit.currentMana);
         dialogueText.text = playerUnit.unitName + " defense mode!";
 
         yield return new WaitForSeconds(2f);

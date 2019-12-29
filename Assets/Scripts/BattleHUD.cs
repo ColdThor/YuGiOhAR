@@ -9,6 +9,7 @@ public class BattleHUD : MonoBehaviour
     public Text nameText;
     public Text levelText;
     public Slider HPBar;
+    public Slider ManaBar;
 
 
     public void setHUD(Unit unit)
@@ -21,7 +22,12 @@ public class BattleHUD : MonoBehaviour
     public void setHP(int ammount)
     {
         HPBar.value = ammount;
+    }
+
+    public void setMana(int ammount)
+    {
+        ManaBar.value = ammount;
 
     }
-    
+
 }

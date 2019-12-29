@@ -14,6 +14,15 @@ public class Unit : MonoBehaviour
     public int maxHP;
     public int currentHP;
 
+    public int maxMana;
+    public int currentMana;
+
+    public int special_mana_cost = 0;
+
+    public bool isDefending = false;
+
+
+
     public bool takeDamage(int dmg)
     {
         currentHP -= dmg;
@@ -23,10 +32,17 @@ public class Unit : MonoBehaviour
             return false;
     }
 
-    public void Defend(int amount)
+    public void useMana(int cost)
     {
-        currentHP += amount;
-        if (currentHP > maxHP) currentHP = maxHP;
+        currentMana -= cost;
+        if (currentMana <= 0)
+            currentMana = 0;
+    }
+
+
+    public void Defend()
+    {
+        isDefending = true;
     }
 
 }
