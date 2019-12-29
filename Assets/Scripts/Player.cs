@@ -56,6 +56,8 @@ public class Player
     public Boolean epicure;
     public Boolean spu;
 
+    public static int story_progress;
+
 
 
 
@@ -105,6 +107,8 @@ public class Player
         lavicka = false;
         epicure = false;
         spu = false;
+
+        story_progress = 0;
     }
 
    
