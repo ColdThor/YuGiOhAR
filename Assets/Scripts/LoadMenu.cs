@@ -9,8 +9,10 @@ using UnityEngine.EventSystems;
 public class LoadMenu : MonoBehaviour
 {
 
-    public static Boolean camefromcollection;
-    public static Boolean camefromdiscover;
+    public static bool camefromcollection;
+    public static bool camefromdiscover;
+    public static bool camefromjourney;
+
     public Canvas main;
     public Canvas game;
     public Canvas options;
@@ -75,11 +77,14 @@ public class LoadMenu : MonoBehaviour
     {
         camefromcollection = false;
         camefromdiscover = false;
+        camefromjourney = false;
 
         if(SceneIndex == 1 )
         {
             SceneManager.LoadScene(SceneIndex);
         }
+
+
 
         if (SceneIndex == 3)
         {
@@ -96,13 +101,36 @@ public class LoadMenu : MonoBehaviour
                 audiotext.enabled = false;
                 optionstext.enabled = false;
             }
-            else
+          
+        }
+        else
+        {
+            if (SceneIndex == 5)
             {
-                SceneManager.LoadScene(SceneIndex);
+
+                if (googleSignIn.userid == null)
+                {
+                    main.enabled = false;
+                    game.enabled = false;
+                    card_scene.enabled = false;
+                    camefromjourney = true;
+                    options.enabled = true;
+                    nametext.text = "YOU MUST BE LOGGED IN TO ENTER STORY";
+                    toggler.gameObject.SetActive(false);
+                    audiotext.enabled = false;
+                    optionstext.enabled = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene(SceneIndex);
+                }
             }
         }
 
-       
+
+
+
+
 
 
     }

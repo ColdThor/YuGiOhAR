@@ -24,6 +24,8 @@ public class googleSignIn : MonoBehaviour
     public Image audio_img;
     public Button back;
 
+    public static int story_progress;
+
     public static string username;
     public static string userid;
 
@@ -75,6 +77,14 @@ public class googleSignIn : MonoBehaviour
                 toggle.enabled = false;
                 audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER NEW CARDS";
+            }
+            if (LoadMenu.camefromjourney == true)
+            {
+                nametext.fontSize = 25;
+                options.enabled = false;
+                toggle.enabled = false;
+                audio_img.enabled = false;
+                nametext.text = "YOU MUST BE LOGGED IN TO ENTER STORY";
             }
         }
 
@@ -205,7 +215,7 @@ public class googleSignIn : MonoBehaviour
             if (player.epicure == false) { locationdata[19] = false; } else { locationdata[19] = true; }
             if (player.spu == false) { locationdata[20] = false; } else { locationdata[20] = true; }
 
-
+            story_progress = player.story_progress;
 
             if (LoadMenu.camefromcollection == true)
             {
@@ -221,6 +231,13 @@ public class googleSignIn : MonoBehaviour
             {
                 LoadMenu.camefromdiscover = false;
                 SceneManager.LoadScene(3);
+            }
+
+
+            if (LoadMenu.camefromjourney == true)
+            {
+                LoadMenu.camefromjourney = false;
+                SceneManager.LoadScene(5);
             }
 
         });
@@ -297,8 +314,21 @@ public class googleSignIn : MonoBehaviour
                                  back.gameObject.SetActive(false);
 
                              } else {
-                                 nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
-                                 signoutbutton.gameObject.SetActive(true);
+                                 if (LoadMenu.camefromjourney == true)
+                                 {
+                                     nametext.text = "LOADING STORY";
+                                     options.text = "";
+                                     signoutbutton.gameObject.SetActive(false);
+                                     toggle.enabled = false;
+                                     audio_img.enabled = false;
+                                     back.gameObject.SetActive(false);
+
+                                 }
+                                 else
+                                 {
+                                     nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
+                                     signoutbutton.gameObject.SetActive(true);
+                                 }
                              }
 
                              

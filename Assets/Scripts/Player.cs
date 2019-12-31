@@ -56,7 +56,7 @@ public class Player
     public Boolean epicure;
     public Boolean spu;
 
-    public static int story_progress;
+    public int story_progress;
 
 
 

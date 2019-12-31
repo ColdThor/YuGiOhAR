@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using Proyecto26;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -47,7 +49,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         attackbar.SetActive(false);
         actionbar.SetActive(true);
-        
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
 
         StartCoroutine(setupBattle());
 
@@ -169,15 +171,29 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
     }
-     
-    void EndBattle()
+
+    IEnumerator EndBattle()
     {
         if(state == BattleState.WON)
         {
             dialogueText.text = "Duel won!";
+            yield return new WaitForSeconds(1f);
+            googleSignIn.story_progress++;
+            Player player = new Player();
+            RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json").Then(response =>
+            {
+                player.story_progress = googleSignIn.story_progress;
+                RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
+            });
+            SceneManager.LoadScene(5);
+          
+
+
         } else if(state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated";
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene(5);
         }
     }
 
