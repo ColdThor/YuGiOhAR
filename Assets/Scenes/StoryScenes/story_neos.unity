@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 67579412}
   - component: {fileID: 67579411}
   m_Layer: 0
-  m_Name: NeosAttack
+  m_Name: EnemyAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,7 +2458,7 @@ GameObject:
   - component: {fileID: 1475881430}
   - component: {fileID: 1475881429}
   m_Layer: 0
-  m_Name: BlueEyesAttack
+  m_Name: PlayerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

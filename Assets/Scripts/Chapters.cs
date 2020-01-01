@@ -18,8 +18,6 @@ public class Chapters : MonoBehaviour
     void Start()
     {
 
-        //TESTING
-        googleSignIn.story_progress = 7;
 
         switch (googleSignIn.story_progress)
         {
@@ -89,6 +87,49 @@ public class Chapters : MonoBehaviour
         if(googleSignIn.story_progress>=1)
         {
             SceneManager.LoadScene(6);
+        }
+    }
+
+    public void onSecondChapter()
+    {
+        if (googleSignIn.story_progress >= 2)
+        {
+            SceneManager.LoadScene(8);
+        }
+    }
+
+    public void onThirdChapter()
+    {
+        if (googleSignIn.story_progress >= 3)
+        {
+            SceneManager.LoadScene(9);
+        }
+    }
+
+
+    public void onFourthChapter()
+    {
+        if (googleSignIn.story_progress >= 4)
+        {
+            SceneManager.LoadScene(10);
+        }
+    }
+
+
+    public void onFifthChapter()
+    {
+        if (googleSignIn.story_progress >= 5)
+        {
+            SceneManager.LoadScene(11);
+        }
+    }
+
+
+    public void onSixthChapter()
+    {
+        if (googleSignIn.story_progress >= 6)
+        {
+            SceneManager.LoadScene(12);
         }
     }
 

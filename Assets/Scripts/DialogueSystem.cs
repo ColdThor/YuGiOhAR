@@ -28,11 +28,12 @@ public class DialogueSystem : MonoBehaviour
 
     void Start()
     {
-        //TESTING
-        googleSignIn.story_progress = 7;
-        diag_inc = 0;
-        ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
 
+        diag_inc = 0;
+        if (ThemeSongScript.Instance != null)
+        {
+            ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
+        }
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (googleSignIn.story_progress == 0)
         {

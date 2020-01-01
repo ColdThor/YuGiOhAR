@@ -160,7 +160,7 @@ public class BattleSystem : MonoBehaviour
         if (isDead)
         {
             state = BattleState.WON;
-            EndBattle();
+            StartCoroutine(EndBattle());
         } 
         else
         {
@@ -168,7 +168,7 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
 
-
+        enemyUnit.isDefending = false;
         yield return new WaitForSeconds(2f);
     }
 
@@ -185,15 +185,32 @@ public class BattleSystem : MonoBehaviour
                 player.story_progress = googleSignIn.story_progress;
                 RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
             });
-            SceneManager.LoadScene(5);
-          
+
+            if (googleSignIn.story_progress == 7)
+            {
+                SceneManager.LoadScene(7);
+            }
+            else
+            {
+                SceneManager.LoadScene(5);
+            }
+
+
 
 
         } else if(state == BattleState.LOST)
         {
-            dialogueText.text = "You were defeated";
+            dialogueText.text = "You were defeated!";
+            dialogueText2.text = "You were defeated!";
             yield return new WaitForSeconds(1f);
-            SceneManager.LoadScene(5);
+            if (googleSignIn.story_progress == 7)
+            {
+                SceneManager.LoadScene(7);
+            }
+            else
+            {
+                SceneManager.LoadScene(5);
+            }
         }
     }
 
@@ -212,7 +229,6 @@ public class BattleSystem : MonoBehaviour
                 mydamage *= 2;
                 enemyUnit.useMana(enemyUnit.special_mana_cost);
                 enemyHUD.setMana(enemyUnit.currentMana);
-
             }
             enemy_attack.Play();
             dialogueText.text = enemyUnit.unitName + " uses " + enemy_special_attack + "!";
@@ -227,34 +243,45 @@ public class BattleSystem : MonoBehaviour
             
 
             isDead = playerUnit.takeDamage(mydamage);
-
             playerHUD.setHP(playerUnit.currentHP);
+            playerUnit.isDefending = false;
+
+
         }
 
         if(random == 2)
         {
             enemyUnit.Defend();
             enemyUnit.currentMana += 30;
+            if(enemyUnit.currentMana>100)
+            {
+                enemyUnit.currentMana = 100;
+            }
             enemyHUD.setMana(enemyUnit.currentMana);
             dialogueText.text = enemyUnit.unitName + " defense mode!";
         }
 
-     
 
 
 
-       
+
 
         yield return new WaitForSeconds(1f);
 
-        if(isDead)
+
+        if (isDead)
         {
             state = BattleState.LOST;
+            Debug.Log("Player is dead");
+            StartCoroutine(EndBattle());
         } else
         {
             state = BattleState.PLAYERTURN;
             playerTurn();
         }
+
+    
+
 
     }
 
@@ -271,6 +298,10 @@ public class BattleSystem : MonoBehaviour
     {
         playerUnit.Defend();
         playerUnit.currentMana += 30;
+        if(playerUnit.currentMana>100)
+        {
+            playerUnit.currentMana = 100;
+        }
         playerHUD.setMana(playerUnit.currentMana);
         dialogueText.text = playerUnit.unitName + " defense mode!";
 
