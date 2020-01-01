@@ -478,14 +478,7 @@ MonoBehaviour:
   protagonist: {fileID: 1581103497}
   antagonist: {fileID: 838088798}
   dialogueCanvas: {fileID: 1767020257}
-  chapter_select: {fileID: 0}
   diag: {fileID: 712180178}
-  chapter1: {fileID: 0}
-  chapter2: {fileID: 0}
-  chapter3: {fileID: 0}
-  chapter4: {fileID: 0}
-  chapter5: {fileID: 0}
-  chapter6: {fileID: 0}
 --- !u!1 &1474255045
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,6 +788,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628215699}
   m_CullTransparentMesh: 0
+--- !u!1 &1738114602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1738114603}
+  - component: {fileID: 1738114604}
+  m_Layer: 0
+  m_Name: AndroidBackButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1738114603
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738114602}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 822.06976, y: 778.7234, z: -7237.8433}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1738114604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738114602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c662ed2486d3b284983221c39907f33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneIndex: 1
 --- !u!1 &1767020254
 GameObject:
   m_ObjectHideFlags: 0

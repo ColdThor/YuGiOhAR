@@ -58,6 +58,11 @@ public class AndroidBackButton : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
 
+            if(SceneIndex == 6)
+            {
+                SceneManager.LoadScene(7);
+            }
+
 
                 if (SceneIndex == 3)
             {

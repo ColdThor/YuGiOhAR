@@ -122,7 +122,14 @@ public class LoadMenu : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene(SceneIndex);
+                    if(googleSignIn.story_progress == 7)
+                    {
+                        SceneManager.LoadScene(7);
+                    } else
+                    {
+                        SceneManager.LoadScene(SceneIndex);
+                    }
+                  
                 }
             }
         }

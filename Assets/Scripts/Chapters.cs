@@ -19,7 +19,7 @@ public class Chapters : MonoBehaviour
     {
 
         //TESTING
-        googleSignIn.story_progress = 1;
+        googleSignIn.story_progress = 7;
 
         switch (googleSignIn.story_progress)
         {
@@ -86,7 +86,10 @@ public class Chapters : MonoBehaviour
 
    public void onFirstChapter()
     {
-        SceneManager.LoadScene(6);
+        if(googleSignIn.story_progress>=1)
+        {
+            SceneManager.LoadScene(6);
+        }
     }
 
 

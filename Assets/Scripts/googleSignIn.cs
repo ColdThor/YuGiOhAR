@@ -237,7 +237,14 @@ public class googleSignIn : MonoBehaviour
             if (LoadMenu.camefromjourney == true)
             {
                 LoadMenu.camefromjourney = false;
-                SceneManager.LoadScene(5);
+                if (story_progress == 7)
+                {
+                    SceneManager.LoadScene(7);
+                }
+                else
+                {
+                    SceneManager.LoadScene(5);
+                }
             }
 
         });
