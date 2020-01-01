@@ -33,6 +33,12 @@ public class DialogueSystem : MonoBehaviour
     {
         music_pref  = PlayerPrefs.GetString("Music", "Default value");
         diag_inc = 0;
+
+        if(googleSignIn.story_progress == 1)
+        {
+            chapterControl();
+        }
+
         if (ThemeSongScript.Instance != null)
         {
             ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
@@ -79,6 +85,7 @@ public class DialogueSystem : MonoBehaviour
         {
            StartCoroutine(FirstChapter());
         }
+       
 
         if (Input.GetMouseButtonDown(0) && googleSignIn.story_progress == 2 && !videoplaying)
         {
