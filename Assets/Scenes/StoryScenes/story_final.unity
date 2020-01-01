@@ -173,7 +173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &5327349
 AudioListener:
   m_ObjectHideFlags: 0
@@ -207,7 +207,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 22
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1573,6 +1573,8 @@ MonoBehaviour:
     type: 3}
   enemy_attack: {fileID: 409728989}
   player_attack: {fileID: 666491103}
+  ar_camera: {fileID: 749377436}
+  normal_camera: {fileID: 5327350}
 --- !u!4 &550625592
 Transform:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ public class googleSignIn : MonoBehaviour
     public Text nametext;
     public Text options;
     public Toggle toggle;
+    public Toggle ar_toggle;
     public Image audio_img;
     public Button back;
 
@@ -41,6 +42,7 @@ public class googleSignIn : MonoBehaviour
         InitializeFirebase();
         nametext.text = "";
         toggle.gameObject.SetActive(true);
+        ar_toggle.gameObject.SetActive(true);
         audio_img.gameObject.SetActive(true);
         back.gameObject.SetActive(true);
 
@@ -67,6 +69,7 @@ public class googleSignIn : MonoBehaviour
                 nametext.fontSize = 25;
                 options.enabled = false;
                 toggle.enabled = false;
+                ar_toggle.enabled = false;
                 audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO VIEW YOUR COLLECTION";
             }
@@ -75,6 +78,7 @@ public class googleSignIn : MonoBehaviour
                 nametext.fontSize = 25;
                 options.enabled = false;
                 toggle.enabled = false;
+                ar_toggle.enabled = false;
                 audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER NEW CARDS";
             }
@@ -83,6 +87,7 @@ public class googleSignIn : MonoBehaviour
                 nametext.fontSize = 25;
                 options.enabled = false;
                 toggle.enabled = false;
+                ar_toggle.enabled = false;
                 audio_img.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO ENTER STORY";
             }
@@ -303,6 +308,7 @@ public class googleSignIn : MonoBehaviour
                                 options.text = "";
                                 signoutbutton.gameObject.SetActive(false);
                                 toggle.enabled = false;
+                                ar_toggle.enabled = false;
                                 audio_img.enabled = false;
                                 back.gameObject.SetActive(false);
 
@@ -317,6 +323,7 @@ public class googleSignIn : MonoBehaviour
                                  options.text = "";
                                  signoutbutton.gameObject.SetActive(false);
                                  toggle.enabled = false;
+                                 ar_toggle.enabled = false;
                                  audio_img.enabled = false;
                                  back.gameObject.SetActive(false);
 
@@ -327,6 +334,7 @@ public class googleSignIn : MonoBehaviour
                                      options.text = "";
                                      signoutbutton.gameObject.SetActive(false);
                                      toggle.enabled = false;
+                                     ar_toggle.enabled = false;
                                      audio_img.enabled = false;
                                      back.gameObject.SetActive(false);
 

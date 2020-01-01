@@ -22,6 +22,7 @@ public class LoadMenu : MonoBehaviour
     public Text optionstext;
     public Image audiotext;
     public Toggle toggler;
+    public Toggle ar_toggler;
 
     private EventTrigger trigger;
 
@@ -98,8 +99,12 @@ public class LoadMenu : MonoBehaviour
                 options.enabled = true;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER";
                 toggler.gameObject.SetActive(false);
+                ar_toggler.gameObject.SetActive(false);
                 audiotext.enabled = false;
                 optionstext.enabled = false;
+            } else
+            {
+                SceneManager.LoadScene(SceneIndex);
             }
           
         }
@@ -107,6 +112,7 @@ public class LoadMenu : MonoBehaviour
         {
             if (SceneIndex == 5)
             {
+                DialogueSystem.diag_inc = 0;
 
                 if (googleSignIn.userid == null)
                 {
@@ -117,6 +123,7 @@ public class LoadMenu : MonoBehaviour
                     options.enabled = true;
                     nametext.text = "YOU MUST BE LOGGED IN TO ENTER STORY";
                     toggler.gameObject.SetActive(false);
+                    ar_toggler.gameObject.SetActive(false);
                     audiotext.enabled = false;
                     optionstext.enabled = false;
                 }
@@ -181,6 +188,7 @@ public class LoadMenu : MonoBehaviour
             options.enabled = true;
             nametext.text = "YOU MUST BE LOGGED IN TO VIEW YOUR COLLECTION";
             toggler.gameObject.SetActive(false);
+            ar_toggler.gameObject.SetActive(false);
             audiotext.enabled = false;
             optionstext.enabled = false;
         }

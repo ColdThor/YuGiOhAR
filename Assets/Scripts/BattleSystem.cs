@@ -43,10 +43,23 @@ public class BattleSystem : MonoBehaviour
     public AudioSource battlemusic;
     public AudioSource enemy_attack;
     public AudioSource player_attack;
+
+    public Camera ar_camera;
+    public Camera normal_camera;
   
     void Start()
     {
         state = BattleState.START;
+        var ar_camera_pref = PlayerPrefs.GetString("Camera", "Default value");
+        if(ar_camera_pref == "yes")
+        {
+            ar_camera.enabled = true;
+            normal_camera.enabled = false;
+        } else
+        {
+            ar_camera.enabled = false;
+            normal_camera.enabled = true;
+        }
         attackbar.SetActive(false);
         actionbar.SetActive(true);
         Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -150,7 +163,11 @@ public class BattleSystem : MonoBehaviour
 
         Handheld.Vibrate();
 
-        player_attack.Play();
+        var music = PlayerPrefs.GetString("Music", "Default value");
+        if (music == "yes")
+        {
+           player_attack.Play();
+        }
 
         attackbar.SetActive(false);
         actionbar.SetActive(true);
@@ -176,6 +193,7 @@ public class BattleSystem : MonoBehaviour
     {
         if(state == BattleState.WON)
         {
+            DialogueSystem.diag_inc = 0;
             dialogueText.text = "Duel won!";
             yield return new WaitForSeconds(1f);
             googleSignIn.story_progress++;
@@ -230,7 +248,12 @@ public class BattleSystem : MonoBehaviour
                 enemyUnit.useMana(enemyUnit.special_mana_cost);
                 enemyHUD.setMana(enemyUnit.currentMana);
             }
-            enemy_attack.Play();
+            var music = PlayerPrefs.GetString("Music", "Default value");
+            if (music == "yes")
+            {
+                enemy_attack.Play();
+            }
+           
             dialogueText.text = enemyUnit.unitName + " uses " + enemy_special_attack + "!";
             Handheld.Vibrate();
 

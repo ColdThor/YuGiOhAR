@@ -15,6 +15,9 @@ public class DialogueSystem : MonoBehaviour
     public Image antagonist;
     public Canvas dialogueCanvas;
     public Text diag;
+    private string music_pref; 
+
+    public AudioSource audioSource;
 
 
 
@@ -24,11 +27,11 @@ public class DialogueSystem : MonoBehaviour
     private bool videoplaying = false;
 
 
-    private int diag_inc = 0;
+    public static int diag_inc = 0;
 
     void Start()
     {
-
+        music_pref  = PlayerPrefs.GetString("Music", "Default value");
         diag_inc = 0;
         if (ThemeSongScript.Instance != null)
         {
@@ -116,6 +119,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("kaiba_dl");
                 antagonist.sprite = Resources.Load<Sprite>("pegasus_dl");
                 antagonist.gameObject.SetActive(true);
@@ -155,6 +163,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 1;
                     googleSignIn.story_progress = 1;
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -171,6 +183,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("kaiba_dl");
                 antagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.gameObject.SetActive(true);
@@ -211,6 +228,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 2;
                     googleSignIn.story_progress = 2;
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -231,6 +252,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("kaiba_dl");
                 antagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.gameObject.SetActive(true);
@@ -286,7 +312,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 3;
                     googleSignIn.story_progress = 3;
-
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -303,6 +332,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.sprite = Resources.Load<Sprite>("bakura_dl");
                 antagonist.gameObject.SetActive(true);
@@ -343,7 +377,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 4;
                     googleSignIn.story_progress = 4;
-
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -357,6 +394,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.sprite = Resources.Load<Sprite>("pegasus_dl");
                 antagonist.gameObject.SetActive(true);
@@ -397,7 +439,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 5;
                     googleSignIn.story_progress = 5;
-
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -412,6 +457,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.sprite = Resources.Load<Sprite>("pegasus_dl");
                 antagonist.gameObject.SetActive(true);
@@ -453,7 +503,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 6;
                     googleSignIn.story_progress = 6;
-
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });
@@ -467,6 +520,11 @@ public class DialogueSystem : MonoBehaviour
         switch (diag_inc)
         {
             case 0:
+                var music = PlayerPrefs.GetString("Music", "Default value");
+                if (music == "yes")
+                {
+                    audioSource.Play();
+                }
                 protagonist.sprite = Resources.Load<Sprite>("yugi_dl");
                 antagonist.sprite = Resources.Load<Sprite>("kaiba_dl");
                 antagonist.gameObject.SetActive(true);
@@ -495,7 +553,10 @@ public class DialogueSystem : MonoBehaviour
                 {
                     player.story_progress = 7;
                     googleSignIn.story_progress = 7;
-
+                    if (music_pref == "yes")
+                    {
+                        audioSource.Stop();
+                    }
                     chapterControl();
                     RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
                 });

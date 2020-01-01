@@ -228,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &144167442
 AudioListener:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 22
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -2755,7 +2755,7 @@ PrefabInstance:
     - target: {fileID: 7735980620244256613, guid: a74b45de4e18c484e8ec163507623a92,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7735980620244256613, guid: a74b45de4e18c484e8ec163507623a92,
         type: 3}
@@ -3179,6 +3179,8 @@ MonoBehaviour:
     type: 3}
   enemy_attack: {fileID: 929643613}
   player_attack: {fileID: 476490665}
+  ar_camera: {fileID: 1857044365}
+  normal_camera: {fileID: 144167443}
 --- !u!4 &1784484173
 Transform:
   m_ObjectHideFlags: 0
