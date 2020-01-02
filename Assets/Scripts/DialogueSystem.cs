@@ -46,7 +46,7 @@ public class DialogueSystem : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
         if (googleSignIn.story_progress == 0)
         {
-         dialogueCanvas.enabled = false;
+              dialogueCanvas.enabled = false;
               GameObject camera = GameObject.Find("Main Camera");
               videoPlayer = camera.AddComponent<VideoPlayer>();
               videoPlayer.playOnAwake = true;
