@@ -156,7 +156,7 @@ public class BattleSystem : MonoBehaviour
 
         Debug.Log("Damage given: " + mydamage);
 
-       bool isDead = enemyUnit.takeDamage(mydamage);
+        bool isDead = enemyUnit.takeDamage(mydamage);
 
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = player_special_attack +" attack!";
@@ -212,11 +212,8 @@ public class BattleSystem : MonoBehaviour
             {
                 SceneManager.LoadScene(5);
             }
-
-
-
-
-        } else if(state == BattleState.LOST)
+        } 
+        else if(state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated!";
             dialogueText2.text = "You were defeated!";
@@ -244,9 +241,12 @@ public class BattleSystem : MonoBehaviour
         {
             if(random == 1)
             {
-                mydamage *= 2;
-                enemyUnit.useMana(enemyUnit.special_mana_cost);
-                enemyHUD.setMana(enemyUnit.currentMana);
+                if(enemyUnit.currentMana > enemyUnit.special_mana_cost)
+                {
+                    mydamage *= 2;
+                    enemyUnit.useMana(enemyUnit.special_mana_cost);
+                    enemyHUD.setMana(enemyUnit.currentMana);
+                } 
             }
             var music = PlayerPrefs.GetString("Music", "Default value");
             if (music == "yes")
@@ -332,7 +332,6 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
-
     }
 
   
