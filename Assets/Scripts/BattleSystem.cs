@@ -138,6 +138,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack(bool special)
     {
+        playerUnit.isDefending = false;
         var mydamage = playerUnit.damage;
 
         if (special)
@@ -150,6 +151,7 @@ public class BattleSystem : MonoBehaviour
 
         if(enemyUnit.isDefending)
         {
+            Debug.Log("Enemy is defending");
             mydamage = mydamage / 60;
             enemyUnit.isDefending = false;
         }
@@ -185,7 +187,7 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
 
-        enemyUnit.isDefending = false;
+     
         yield return new WaitForSeconds(2f);
     }
 
@@ -231,7 +233,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-
+        enemyUnit.isDefending = false;
         int random = UnityEngine.Random.Range(0, 3);
         bool isDead = false;
         var mydamage = enemyUnit.damage;
@@ -267,14 +269,11 @@ public class BattleSystem : MonoBehaviour
 
             isDead = playerUnit.takeDamage(mydamage);
             playerHUD.setHP(playerUnit.currentHP);
-            playerUnit.isDefending = false;
-
-
         }
 
         if(random == 2)
         {
-            enemyUnit.Defend();
+            enemyUnit.isDefending = true;
             enemyUnit.currentMana += 30;
             if(enemyUnit.currentMana>100)
             {
