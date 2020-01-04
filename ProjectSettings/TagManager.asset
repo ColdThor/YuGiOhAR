@@ -27,6 +27,7 @@ TagManager:
   - MI18
   - MI19
   - MI20
+  - Obelisk
   layers:
   - Default
   - TransparentFX

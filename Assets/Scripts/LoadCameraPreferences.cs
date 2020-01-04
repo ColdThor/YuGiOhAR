@@ -9,23 +9,19 @@ public class LoadCameraPreferences : MonoBehaviour
     public Toggle cameratoggle;
 
 
-    void Start()
-    {
-        Scene scene = SceneManager.GetActiveScene();
 
-        if (scene.name == "options")
+
+    void Update()
+    {
+        var cam = PlayerPrefs.GetString("Camera", "Default value");
+        if (cam == "yes" || cam == "Default value")
         {
-            var cam = PlayerPrefs.GetString("Camera", "Default value");
-            if (cam.Equals("yes"))
-            {
-                cameratoggle.isOn = true;
-            }
-            if (cam.Equals("no"))
-            {
-                cameratoggle.isOn = false;
-            }
+            cameratoggle.isOn = true;
         }
-        
+        if (cam == "no")
+        {
+            cameratoggle.isOn = false;
+        }
     }
 
 }

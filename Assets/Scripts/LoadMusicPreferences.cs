@@ -10,32 +10,19 @@ public class LoadMusicPreferences : MonoBehaviour
     public Toggle audiotoggle;
 
 
-    void Start()
+
+    void Update()
     {
-        Scene scene = SceneManager.GetActiveScene();
-
-        if (scene.name == "options")
+        var music = PlayerPrefs.GetString("Music", "Default value");
+        if (music.Equals("yes"))
         {
-            var music = PlayerPrefs.GetString("Music", "Default value");
-            if (music.Equals("yes"))
-            {
-                audiotoggle.isOn = true;
-            }
-            if (music.Equals("no"))
-            {
-                audiotoggle.isOn = false;
-            } 
+            audiotoggle.isOn = true;
         }
-        else
+        if (music.Equals("no"))
         {
-            var music = PlayerPrefs.GetString("Music", "Default value");
-            if (music.Equals("no"))
-            {
-
-                ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Stop();
-
-            }
+            audiotoggle.isOn = false;
         }
     }
+
 
 }

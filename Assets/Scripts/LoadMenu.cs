@@ -21,6 +21,7 @@ public class LoadMenu : MonoBehaviour
     public Text nametext;
     public Text optionstext;
     public Image audiotext;
+    public Image artext;
     public Toggle toggler;
     public Toggle ar_toggler;
 
@@ -101,6 +102,7 @@ public class LoadMenu : MonoBehaviour
                 toggler.gameObject.SetActive(false);
                 ar_toggler.gameObject.SetActive(false);
                 audiotext.enabled = false;
+                artext.enabled = false;
                 optionstext.enabled = false;
             } else
             {
@@ -125,6 +127,7 @@ public class LoadMenu : MonoBehaviour
                     toggler.gameObject.SetActive(false);
                     ar_toggler.gameObject.SetActive(false);
                     audiotext.enabled = false;
+                    artext.enabled = false;
                     optionstext.enabled = false;
                 }
                 else
@@ -190,6 +193,7 @@ public class LoadMenu : MonoBehaviour
             toggler.gameObject.SetActive(false);
             ar_toggler.gameObject.SetActive(false);
             audiotext.enabled = false;
+            artext.enabled = false;
             optionstext.enabled = false;
         }
         else
@@ -212,6 +216,9 @@ public class LoadMenu : MonoBehaviour
         GameObject.Find("Canvas_fullscreencard").GetComponent<Canvas>().enabled = true;
         showCard(21);
     }
+
+
+
 
 
 }

@@ -126,6 +126,8 @@ public class TileManager : MonoBehaviour {
 				position = new Vector3 (-x, .5f, -y);
 			}
 
+			
+
 			position.x *= 0.300122f;
 			position.z *= 0.123043f;
 
@@ -257,6 +259,8 @@ public class TileManager : MonoBehaviour {
 	}
 
 	void Update() {
+
+
 		if (Input.location.isEnabledByUser)
 		{
 			text.text = "PLEASE WAIT";

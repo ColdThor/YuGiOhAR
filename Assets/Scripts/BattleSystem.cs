@@ -53,15 +53,23 @@ public class BattleSystem : MonoBehaviour
         var ar_camera_pref = PlayerPrefs.GetString("Camera", "Default value");
 
 
-        if(ar_camera_pref == "no")
-        {
-            ar_camera.enabled = false;
-            normal_camera.enabled = true;
-        } else
+        if(ar_camera_pref == "yes" || ar_camera_pref == "Default value")
         {
             ar_camera.enabled = true;
+            if(enemy.tag != "Obelisk")
+            {
+                enemy.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            }
+            player.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+            player.transform.localPosition += new Vector3(-2f, 0, 0);
             normal_camera.enabled = false;
+        } else
+        {
+           
+            ar_camera.enabled = false;
+            normal_camera.enabled = true;
         }
+
 
         attackbar.SetActive(false);
         actionbar.SetActive(true);
@@ -201,6 +209,8 @@ public class BattleSystem : MonoBehaviour
             DialogueSystem.diag_inc = 0;
             dialogueText.text = "Duel won!";
             yield return new WaitForSeconds(1f);
+            if(googleSignIn.story_progress<7)
+            {
             googleSignIn.story_progress++;
             Player player = new Player();
             RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json").Then(response =>
@@ -208,7 +218,7 @@ public class BattleSystem : MonoBehaviour
                 player.story_progress = googleSignIn.story_progress;
                 RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
             });
-
+            }
             if (googleSignIn.story_progress == 7)
             {
                 SceneManager.LoadScene(7);

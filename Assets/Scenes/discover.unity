@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2628821}
   m_Layer: 0
   m_Name: "\u017Dabia font\xE1na "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 18349098}
   m_Layer: 0
   m_Name: "Amfite\xE1ter "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 118747899}
   m_Layer: 0
   m_Name: "Netradi\u010Dne lavi\u010Dky "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 389604062}
   m_Layer: 0
   m_Name: "Univerzitn\xE1 kni\u017Enica UKF "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 463241804}
   m_Layer: 0
   m_Name: "Mostn\xE1 ulica "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 755653566}
   m_Layer: 0
   m_Name: "Mari\xE1nsky st\u013Ap "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1786,7 +1786,7 @@ GameObject:
   - component: {fileID: 954290828}
   m_Layer: 0
   m_Name: "\u010Cajovna Epicure "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1860,7 +1860,7 @@ GameObject:
   - component: {fileID: 966571210}
   m_Layer: 0
   m_Name: "Corgo\u0148 "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1934,7 +1934,7 @@ GameObject:
   - component: {fileID: 969977435}
   m_Layer: 0
   m_Name: "Univerzita Kon\u0161tant\xEDna Filozofa "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2544,7 +2544,7 @@ GameObject:
   - component: {fileID: 1134820853}
   m_Layer: 0
   m_Name: OC Mlyny
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2618,7 +2618,7 @@ GameObject:
   - component: {fileID: 1216902858}
   m_Layer: 0
   m_Name: "Mestsk\xE1 \u0161portov\xE1 hala "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2961,7 +2961,7 @@ GameObject:
   - component: {fileID: 1291261794}
   m_Layer: 0
   m_Name: "Vysiela\u010D pyram\xEDda "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3035,7 +3035,7 @@ GameObject:
   - component: {fileID: 1327271373}
   m_Layer: 0
   m_Name: Nitriansky hrad
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3468,7 +3468,7 @@ GameObject:
   - component: {fileID: 1458928752}
   m_Layer: 0
   m_Name: "Kostol sv\xE4t\xE9ho Michala archanjela "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3856,7 +3856,7 @@ GameObject:
   - component: {fileID: 1527153828}
   m_Layer: 0
   m_Name: Hidepark
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4126,7 +4126,7 @@ GameObject:
   - component: {fileID: 1721539029}
   m_Layer: 0
   m_Name: "Farebn\xE1 font\xE1na "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4200,7 +4200,7 @@ GameObject:
   - component: {fileID: 1722824807}
   m_Layer: 0
   m_Name: "Slovensk\xE1 po\u013Enohospod\xE1rska univerzita "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4542,7 +4542,7 @@ GameObject:
   - component: {fileID: 1836287776}
   m_Layer: 0
   m_Name: Hypermarket Tesco
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4750,7 +4750,7 @@ GameObject:
   - component: {fileID: 1897103608}
   m_Layer: 0
   m_Name: Agrokomplex
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4824,7 +4824,7 @@ GameObject:
   - component: {fileID: 1906009003}
   m_Layer: 0
   m_Name: HOTEL Mikado
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5540,7 +5540,7 @@ GameObject:
   - component: {fileID: 2064322967}
   m_Layer: 0
   m_Name: "Kalv\xE1ria "
-  m_TagString: Untagged
+  m_TagString: MilleniumItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

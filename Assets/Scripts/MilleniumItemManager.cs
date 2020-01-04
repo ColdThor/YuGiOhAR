@@ -22,9 +22,8 @@ public class MilleniumItemManager : MonoBehaviour {
 	}
 
 	void Update () {
-	
-			
-		
+
+
 
 		if (Input.touchCount == 1 && Input.GetTouch (0).phase == TouchPhase.Stationary) {
 			RaycastHit hit;
@@ -84,12 +83,11 @@ public class MilleniumItemManager : MonoBehaviour {
 	void SpawnItems() {
 
 		itemindex = 100;
-
 		for(int i = 0; i < count; i++)
 		{
 			if (googleSignIn.locationdata[i] == false)
 			{
-			MilleniumItemType type = (MilleniumItemType)(int)UnityEngine.Random.Range(0, Enum.GetValues(typeof(MilleniumItemType)).Length);
+				MilleniumItemType type = (MilleniumItemType)(int)UnityEngine.Random.Range(0, Enum.GetValues(typeof(MilleniumItemType)).Length);
 			float newLat = 0; 
 			float newLon = 0;
 
@@ -99,36 +97,37 @@ public class MilleniumItemManager : MonoBehaviour {
 
 				switch (i)
 				{
-					case 0: newLat = 48.307905f; newLon = 18.086105f; millenium_item.tag = "MI0"; break;
-					case 1: newLat = 48.307915f; newLon = 18.090796f; millenium_item.tag = "MI1"; break;
-					case 2: newLat = 48.317748f; newLon = 18.087894f; millenium_item.tag = "MI2"; break;
+					case 0: newLat = 48.30791f; newLon = 18.08611f; millenium_item.tag = "MI0"; break;
+					case 1: newLat = 48.30792f; newLon = 18.09080f; millenium_item.tag = "MI1"; break;
+					case 2: newLat = 48.31775f; newLon = 18.08789f; millenium_item.tag = "MI2"; break;
 
-					case 3: newLat = 48.322711f; newLon = 18.093299f; millenium_item.tag = "MI3"; break;
-					case 4: newLat = 48.323635f; newLon = 18.095375f; millenium_item.tag = "MI4"; break;
-					case 5: newLat = 48.343268f; newLon = 18.105408f; millenium_item.tag = "MI5"; break;
+					case 3: newLat = 48.32232f; newLon = 18.09462f; millenium_item.tag = "MI3"; break;
+					case 4: newLat = 48.32232f; newLon = 18.09538f; millenium_item.tag = "MI4"; break;
+					case 5: newLat = 48.34327f; newLon = 18.10541f; millenium_item.tag = "MI5"; break;
 
-					case 6: newLat = 48.308567f; newLon = 18.102795f; millenium_item.tag = "MI6"; break;
-					case 7: newLat = 48.296811f; newLon = 18.08975f;  millenium_item.tag = "MI7"; break;
-					case 8: newLat = 48.296903f; newLon = 18.06753f;  millenium_item.tag = "MI8"; break;
+					case 6: newLat = 48.30857f; newLon = 18.10280f; millenium_item.tag = "MI6"; break;
+					case 7: newLat = 48.29681f; newLon = 18.08975f;  millenium_item.tag = "MI7"; break;
+					case 8: newLat = 48.29690f; newLon = 18.06753f;  millenium_item.tag = "MI8"; break;
 
-					case 9: newLat = 48.310528f; newLon = 18.068646f;  millenium_item.tag = "MI9"; break;
-					case 10: newLat = 48.314702f; newLon = 18.068593f; millenium_item.tag = "MI10"; break;
-					case 11: newLat = 48.32148f; newLon = 18.085502f;  millenium_item.tag = "MI11"; break;
+					case 9: newLat = 48.31053f; newLon = 18.06865f;  millenium_item.tag = "MI9"; break;
+					case 10: newLat = 48.31470f; newLon = 18.06859f; millenium_item.tag = "MI10"; break;
+					case 11: newLat = 48.3215f; newLon = 18.08550f;  millenium_item.tag = "MI11"; break;
 
-					case 12: newLat = 48.356736f; newLon = 18.055215f; millenium_item.tag = "MI12"; break;
-					case 13: newLat = 48.306974f; newLon = 18.077813f; millenium_item.tag = "MI13"; break;
-					case 14: newLat = 48.315392f; newLon = 18.090343f; millenium_item.tag = "MI14"; break;
+					case 12: newLat = 48.35674f; newLon = 18.05522f; millenium_item.tag = "MI12"; break;
+					case 13: newLat = 48.30697f; newLon = 18.07781f; millenium_item.tag = "MI13"; break;
+					case 14: newLat = 48.31539f; newLon = 18.09034f; millenium_item.tag = "MI14"; break;
 
-					case 15: newLat = 48.313908f; newLon = 18.088234f; millenium_item.tag = "MI15"; break;
-					case 16: newLat = 48.318210f; newLon = 18.086502f; millenium_item.tag = "MI16"; break;
-					case 17: newLat = 48.316364f; newLon = 18.088675f; millenium_item.tag = "MI17"; break;
+					case 15: newLat = 48.31391f; newLon = 18.08823f; millenium_item.tag = "MI15"; break;
+					case 16: newLat = 48.31821f; newLon = 18.08650f; millenium_item.tag = "MI16"; break;
+					case 17: newLat = 48.31636f; newLon = 18.08868f; millenium_item.tag = "MI17"; break;
 
-					case 18: newLat = 48.315754f; newLon = 18.095918f; millenium_item.tag = "MI18"; break;
-					case 19: newLat = 48.308612f; newLon = 18.086423f; millenium_item.tag = "MI19"; break;
-					case 20: newLat = 48.307421f; newLon = 18.092865f; millenium_item.tag = "MI20"; break;
+					case 18: newLat = 48.31575f; newLon = 18.09592f; millenium_item.tag = "MI18"; break;
+					case 19: newLat = 48.30861f; newLon = 18.08642f; millenium_item.tag = "MI19"; break;
+					case 20: newLat = 48.30742f; newLon = 18.09286f; millenium_item.tag = "MI20"; break;
 				}
-
-
+				/// OUR LAT: 48.32232 OUR LON: 18.09462
+				Debug.Log("Adding item at : "+newLat +" and " +newLon);
+					
 				millenium_item.Init(newLat, newLon);
 			items.Add(millenium_item);
 		}
@@ -138,12 +137,12 @@ public class MilleniumItemManager : MonoBehaviour {
 
 
     public void UpdateItemPosition() {
-		if (items.Count == 0)
-			return;
+		/*	if (items.Count == 0)
+				return;
 
-        MilleniumPuzzle[] item = items.ToArray ();
-		for (int i = 0; i < item.Length; i++) {
-            item[i].UpdatePosition ();
-		}
+			MilleniumPuzzle[] item = items.ToArray ();
+			for (int i = 0; i < item.Length; i++) {
+				item[i].UpdatePosition ();
+			}*/
 	}
 }

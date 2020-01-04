@@ -146,6 +146,7 @@ MonoBehaviour:
   nametext: {fileID: 750357278}
   optionstext: {fileID: 1993066037}
   audiotext: {fileID: 1817972695}
+  artext: {fileID: 1582005433}
   toggler: {fileID: 249314891}
   ar_toggler: {fileID: 1909845092}
 --- !u!1 &66416146
@@ -1942,7 +1943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1210.9}
+  m_AnchoredPosition: {x: 0, y: -1210.9001}
   m_SizeDelta: {x: 796, y: 2628.3}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &912366252
@@ -2375,8 +2376,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 791851142}
   m_HandleRect: {fileID: 791851141}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5392839
+  m_Value: 1.0000002
+  m_Size: 0.53928393
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3651,6 +3652,7 @@ MonoBehaviour:
   toggle: {fileID: 249314891}
   ar_toggle: {fileID: 1909845092}
   audio_img: {fileID: 1817972695}
+  artext: {fileID: 1582005433}
   back: {fileID: 67738537}
 --- !u!1 &1817972694
 GameObject:

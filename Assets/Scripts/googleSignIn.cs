@@ -23,6 +23,7 @@ public class googleSignIn : MonoBehaviour
     public Toggle toggle;
     public Toggle ar_toggle;
     public Image audio_img;
+    public Image artext;
     public Button back;
 
     public static int story_progress;
@@ -44,6 +45,7 @@ public class googleSignIn : MonoBehaviour
         toggle.gameObject.SetActive(true);
         ar_toggle.gameObject.SetActive(true);
         audio_img.gameObject.SetActive(true);
+        artext.gameObject.SetActive(true);
         back.gameObject.SetActive(true);
 
 
@@ -71,6 +73,7 @@ public class googleSignIn : MonoBehaviour
                 toggle.enabled = false;
                 ar_toggle.enabled = false;
                 audio_img.enabled = false;
+                artext.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO VIEW YOUR COLLECTION";
             }
             if (LoadMenu.camefromdiscover == true)
@@ -80,6 +83,7 @@ public class googleSignIn : MonoBehaviour
                 toggle.enabled = false;
                 ar_toggle.enabled = false;
                 audio_img.enabled = false;
+                artext.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO DISCOVER NEW CARDS";
             }
             if (LoadMenu.camefromjourney == true)
@@ -89,6 +93,7 @@ public class googleSignIn : MonoBehaviour
                 toggle.enabled = false;
                 ar_toggle.enabled = false;
                 audio_img.enabled = false;
+                artext.enabled = false;
                 nametext.text = "YOU MUST BE LOGGED IN TO ENTER STORY";
             }
         }
@@ -310,7 +315,8 @@ public class googleSignIn : MonoBehaviour
                                 toggle.enabled = false;
                                 ar_toggle.enabled = false;
                                 audio_img.enabled = false;
-                                back.gameObject.SetActive(false);
+                             artext.enabled = false;
+                             back.gameObject.SetActive(false);
 
 
                          }
@@ -325,6 +331,7 @@ public class googleSignIn : MonoBehaviour
                                  toggle.enabled = false;
                                  ar_toggle.enabled = false;
                                  audio_img.enabled = false;
+                                 artext.enabled = false;
                                  back.gameObject.SetActive(false);
 
                              } else {
@@ -336,6 +343,7 @@ public class googleSignIn : MonoBehaviour
                                      toggle.enabled = false;
                                      ar_toggle.enabled = false;
                                      audio_img.enabled = false;
+                                     artext.enabled = false;
                                      back.gameObject.SetActive(false);
 
                                  }

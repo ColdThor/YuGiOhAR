@@ -17,7 +17,12 @@ public class Chapters : MonoBehaviour
 
     void Start()
     {
+        if (ThemeSongScript.Instance != null)
+        {
+            ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
+        }
 
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
 
         switch (googleSignIn.story_progress)
         {
