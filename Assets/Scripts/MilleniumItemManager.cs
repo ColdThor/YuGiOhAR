@@ -93,9 +93,6 @@ public class MilleniumItemManager : MonoBehaviour {
 			float newLat = 0; 
 			float newLon = 0;
 
-			
-
-
 			MilleniumPuzzle prefab = Resources.Load("MilleniumItems/puzzle", typeof(MilleniumPuzzle)) as MilleniumPuzzle;
 			MilleniumPuzzle millenium_item = Instantiate(prefab, Vector3.zero, Quaternion.Euler(-100, 0, 0)) as MilleniumPuzzle;
 			millenium_item.tileManager = tileManager;
