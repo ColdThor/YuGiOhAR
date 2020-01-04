@@ -52,20 +52,15 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         var ar_camera_pref = PlayerPrefs.GetString("Camera", "Default value");
 
-        if(ar_camera_pref == null)
-        {
-            ar_camera.enabled = true;
-            normal_camera.enabled = false;
-        }
 
-        if(ar_camera_pref == "yes")
-        {
-            ar_camera.enabled = true;
-            normal_camera.enabled = false;
-        } else
+        if(ar_camera_pref == "no")
         {
             ar_camera.enabled = false;
             normal_camera.enabled = true;
+        } else
+        {
+            ar_camera.enabled = true;
+            normal_camera.enabled = false;
         }
 
         attackbar.SetActive(false);

@@ -5,17 +5,6 @@ using UnityEngine;
 public class ThemeSongScript : MonoBehaviour
 {
 
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-
     private static ThemeSongScript instance = null;
     public static ThemeSongScript Instance
     {
