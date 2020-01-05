@@ -62,10 +62,10 @@ public class BattleSystem : MonoBehaviour
             normal_camera.enabled = false;
         } else
         {
-           
-            ar_camera.enabled = false;
+
+            ar_camera.gameObject.SetActive(false);
             normal_camera.enabled = true;
-            normal_camera.backgroundColor = Color.green;
+
         }
 
 
@@ -88,8 +88,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator setupBattle()
     {
-       //GameObject playerGO = Instantiate(player);
-       playerUnit = player.GetComponent<Unit>();
+        
+        //GameObject playerGO = Instantiate(player);
+        playerUnit = player.GetComponent<Unit>();
 
        //GameObject enemyGO  = Instantiate(enemy);
        enemyUnit = enemy.GetComponent<Unit>();
@@ -344,5 +345,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(EnemyTurn());
     }
 
+
+ 
   
 }
