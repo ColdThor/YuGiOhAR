@@ -23,7 +23,7 @@ public class MilleniumItemManager : MonoBehaviour {
 
 	void Update () {
 
-
+		
 
 		if (Input.touchCount == 1 && Input.GetTouch (0).phase == TouchPhase.Stationary) {
 			RaycastHit hit;
@@ -87,7 +87,7 @@ public class MilleniumItemManager : MonoBehaviour {
 		{
 			if (googleSignIn.locationdata[i] == false)
 			{
-				MilleniumItemType type = (MilleniumItemType)(int)UnityEngine.Random.Range(0, Enum.GetValues(typeof(MilleniumItemType)).Length);
+			MilleniumItemType type = (MilleniumItemType)(int)UnityEngine.Random.Range(0, Enum.GetValues(typeof(MilleniumItemType)).Length);
 			float newLat = 0; 
 			float newLon = 0;
 
