@@ -137,12 +137,12 @@ public class MilleniumItemManager : MonoBehaviour {
 
 
     public void UpdateItemPosition() {
-		/*	if (items.Count == 0)
+			if (items.Count == 0)
 				return;
 
 			MilleniumPuzzle[] item = items.ToArray ();
 			for (int i = 0; i < item.Length; i++) {
 				item[i].UpdatePosition ();
-			}*/
+			}
 	}
 }

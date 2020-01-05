@@ -24,6 +24,8 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public GameObject scaleall;
+
     public Text specialattack;
     public Text dialogueText2;
 
@@ -56,18 +58,14 @@ public class BattleSystem : MonoBehaviour
         if(ar_camera_pref == "yes" || ar_camera_pref == "Default value")
         {
             ar_camera.enabled = true;
-            if(enemy.tag != "Obelisk")
-            {
-                enemy.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
-            }
-            player.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
-            player.transform.localPosition += new Vector3(-2f, 0, 0);
+            scaleall.transform.localScale += new Vector3(0.3f, 0.3f);
             normal_camera.enabled = false;
         } else
         {
            
             ar_camera.enabled = false;
             normal_camera.enabled = true;
+            normal_camera.backgroundColor = Color.green;
         }
 
 
@@ -90,11 +88,11 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator setupBattle()
     {
-       GameObject playerGO = Instantiate(player);
-       playerUnit = playerGO.GetComponent<Unit>();
+       //GameObject playerGO = Instantiate(player);
+       playerUnit = player.GetComponent<Unit>();
 
-       GameObject enemyGO  = Instantiate(enemy);
-       enemyUnit = enemyGO.GetComponent<Unit>();
+       //GameObject enemyGO  = Instantiate(enemy);
+       enemyUnit = enemy.GetComponent<Unit>();
 
        dialogueText.text = "" + enemyUnit.unitName + " Appears!";
 
