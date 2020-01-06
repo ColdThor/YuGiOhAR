@@ -22,8 +22,8 @@ public class MilleniumItemManager : MonoBehaviour {
 	}
 
 	void Update () {
+	
 
-		
 
 		if (Input.touchCount == 1 && Input.GetTouch (0).phase == TouchPhase.Stationary) {
 			RaycastHit hit;
@@ -126,10 +126,12 @@ public class MilleniumItemManager : MonoBehaviour {
 					case 20: newLat = 48.30742f; newLon = 18.09286f; millenium_item.tag = "MI20"; break;
 				}
 				/// OUR LAT: 48.32232 OUR LON: 18.09462
-				Debug.Log("Adding item at : "+newLat +" and " +newLon);
-					
-				millenium_item.Init(newLat, newLon);
-			items.Add(millenium_item);
+		
+					millenium_item.Init(newLat, newLon);
+					items.Add(millenium_item);
+				
+
+
 		}
 
 		}

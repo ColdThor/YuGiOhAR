@@ -3394,6 +3394,7 @@ MonoBehaviour:
   state: 0
   player: {fileID: 497527990}
   enemy: {fileID: 342948059}
+  story_chapter: 5
   scaleall: {fileID: 1553025451}
   specialattack: {fileID: 1581440184}
   dialogueText2: {fileID: 1358013993}

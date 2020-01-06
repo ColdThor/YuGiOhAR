@@ -1422,6 +1422,7 @@ MonoBehaviour:
   state: 0
   player: {fileID: 2106070152}
   enemy: {fileID: 577021818}
+  story_chapter: 6
   scaleall: {fileID: 1907823500}
   specialattack: {fileID: 1770336392}
   dialogueText2: {fileID: 1108445614}

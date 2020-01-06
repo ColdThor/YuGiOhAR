@@ -18,16 +18,19 @@ public class MilleniumPuzzle : MonoBehaviour {
 
 		geodeticOffsetInv (tileManager.getLat * Mathf.Deg2Rad, tileManager.getLon * Mathf.Deg2Rad, lat * Mathf.Deg2Rad, lon * Mathf.Deg2Rad, out x, out y);
 
-		/* if ((lat - tileManager.getLat) < 0 && (lon - tileManager.getLon) > 0 || (lat - tileManager.getLat) > 0 && (lon - tileManager.getLon) < 0) {
-			
-		} else {
-			position = new Vector3 (-x, 0, -y);
-		} */
+		if ((lat - tileManager.getLat) < 0 && (lon - tileManager.getLon) > 0 || (lat - tileManager.getLat) > 0 && (lon - tileManager.getLon) < 0) {
+			position = new Vector3(x, .5f, y);
+		}
+		else {
+			position = new Vector3 (-x, .5f, -y);
+		} 
 
-		position = new Vector3(x, 0, y);
+		//position = new Vector3(-x, 0, -y);
 
 		position.x *= 0.300122f;
 		position.z *= 0.123043f;
+
+		Debug.Log("Position of inited millenium puzzle: " + position.x + " z: " + position.z);
 
 		transform.position = position;
 	}

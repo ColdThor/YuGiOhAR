@@ -24,6 +24,8 @@ public class BattleSystem : MonoBehaviour
     Unit playerUnit;
     Unit enemyUnit;
 
+    public int story_chapter = 0;
+
     public GameObject scaleall;
 
     public Text specialattack;
@@ -208,9 +210,9 @@ public class BattleSystem : MonoBehaviour
             DialogueSystem.diag_inc = 0;
             dialogueText.text = "Duel won!";
             yield return new WaitForSeconds(1f);
-            if(googleSignIn.story_progress<7)
+            if(googleSignIn.story_progress<story_chapter++)
             {
-            googleSignIn.story_progress++;
+                googleSignIn.story_progress = story_chapter++;
             Player player = new Player();
             RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json").Then(response =>
             {
