@@ -24,6 +24,8 @@ public class PopulateCollection : MonoBehaviour
 
     public int pocet;
 
+    private bool popafterlog = false;
+
 
     public static Sprite[] cards;
     public static Sprite[] unobtained;
@@ -37,12 +39,20 @@ public class PopulateCollection : MonoBehaviour
 
     void Start()
     {
-        Populate();
+        //  Populate();
     }
 
    
     void Update()
     {
+        if(popafterlog == false && collection.isActiveAndEnabled)
+        {
+
+            Populate();
+            popafterlog = true;
+          collection.enabled = !true;
+          collection.enabled = true;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -59,7 +69,7 @@ public class PopulateCollection : MonoBehaviour
 
 
 
-    void Populate()
+    public void Populate()
     {
 
         GameObject[] newObj;

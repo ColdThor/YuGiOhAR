@@ -26,6 +26,8 @@ public class googleSignIn : MonoBehaviour
     public Image artext;
     public Button back;
 
+    public static bool loadingdone = false;
+
     public static int story_progress;
 
     public static string username;
@@ -52,7 +54,7 @@ public class googleSignIn : MonoBehaviour
 
 
 
-        if ( userid != null )
+        if ( userid != null)
         {
             signinbutton.gameObject.SetActive(false);
             signoutbutton.gameObject.SetActive(true);
@@ -61,11 +63,24 @@ public class googleSignIn : MonoBehaviour
         } else
         {
             signoutbutton.gameObject.SetActive(false);
-            GoogleSignIn.Configuration = new GoogleSignInConfiguration
+
+            if (GoogleSignIn.Configuration == null)
             {
-                RequestIdToken = true,
-                WebClientId = "505464665583-4ohbreuk1g2e3g24bt9kg62q9c1t2mgt.apps.googleusercontent.com"
-            };
+
+                GoogleSignIn.Configuration = new GoogleSignInConfiguration
+                {
+                    RequestIdToken = true,
+                    WebClientId = "505464665583-4ohbreuk1g2e3g24bt9kg62q9c1t2mgt.apps.googleusercontent.com"
+                };
+            } else
+            {
+                username = FBuser.DisplayName.ToString();
+                userid = FBuser.UserId.ToString();
+                Player player = new Player();
+                getPlayer(player);
+            }
+
+
             if(LoadMenu.camefromcollection == true)
             {
                 nametext.fontSize = 25;
@@ -256,7 +271,11 @@ public class googleSignIn : MonoBehaviour
                     SceneManager.LoadScene(5);
                 }
             }
+            loadingdone = true;
 
+          
+
+            nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
         });
 
     }
@@ -283,10 +302,12 @@ public class googleSignIn : MonoBehaviour
              if (task.IsCanceled)
              {
                  signInCompleted.SetCanceled();
+                 Debug.Log("TASK WAS CANCELLED");
              }
              else if (task.IsFaulted)
              {
                  signInCompleted.SetException(task.Exception);
+                 Debug.Log("TASK ENDED WITH EXCEPTION_ " + task.Exception);
              }
              else
              {
@@ -297,10 +318,12 @@ public class googleSignIn : MonoBehaviour
                      if (authTask.IsCanceled)
                      {
                          signInCompleted.SetCanceled();
+                         Debug.Log("TASK WAS CANCELLED2");
                      }
                      else if (authTask.IsFaulted)
                      {
                          signInCompleted.SetException(authTask.Exception);
+                         Debug.Log("TASK ENDED WITH EXCEPTION2 " + task.Exception);
                      }
                      else
                      {
@@ -349,14 +372,14 @@ public class googleSignIn : MonoBehaviour
                                  }
                                  else
                                  {
-                                     nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
+                                     nametext.text = "LOADING";
                                      signoutbutton.gameObject.SetActive(true);
                                  }
                              }
 
                              
                          }
-                      
+                         loadingdone = false;
                          username = FBuser.DisplayName.ToString();
                          userid = FBuser.UserId.ToString();
                          Player player = new Player();

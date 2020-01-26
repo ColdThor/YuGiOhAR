@@ -24,6 +24,7 @@ public class LoadMenu : MonoBehaviour
     public Image artext;
     public Toggle toggler;
     public Toggle ar_toggler;
+    float currCountdownValue;
 
     private EventTrigger trigger;
 
@@ -198,7 +199,16 @@ public class LoadMenu : MonoBehaviour
         }
         else
         {
-            collection.enabled = true;
+
+            if (googleSignIn.loadingdone == true)
+            {
+                collection.enabled = true;
+            } else
+            {
+                StartCoroutine(StartCountdown());
+            }
+
+                
         }
 
     }
@@ -206,7 +216,9 @@ public class LoadMenu : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
+        //Application.Quit();
+        AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+        activity.Call<bool>("moveTaskToBack", true);
     }
 
     public void showFullScreenCard()
@@ -215,6 +227,23 @@ public class LoadMenu : MonoBehaviour
         GameObject.Find("Canvas_collection").GetComponent<Canvas>().enabled = false;
         GameObject.Find("Canvas_fullscreencard").GetComponent<Canvas>().enabled = true;
         showCard(21);
+    }
+
+    public IEnumerator StartCountdown(float countdownValue = 10)
+    {
+        currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
+        {
+            Debug.Log("Countdown: " + currCountdownValue);
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+            if(googleSignIn.loadingdone == true)
+            {
+                currCountdownValue = 0;
+                countdownValue = 0;
+                collection.enabled = true;
+            }
+        }
     }
 
 

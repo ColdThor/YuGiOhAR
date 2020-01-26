@@ -25,7 +25,9 @@ public class AndroidBackButton : MonoBehaviour
             {
                 if (GameObject.Find("Canvas_main").GetComponent<Canvas>().isActiveAndEnabled)
                 {
-                    Application.Quit();
+                    //  Application.Quit();
+                    AndroidJavaObject activity = new AndroidJavaClass("com.unity3d.player.UnityPlayer").GetStatic<AndroidJavaObject>("currentActivity");
+                    activity.Call<bool>("moveTaskToBack", true);
                 }
                 else
                 {
