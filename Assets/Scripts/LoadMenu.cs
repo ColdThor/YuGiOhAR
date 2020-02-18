@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
+using UnityEngine.Android;
 
 public class LoadMenu : MonoBehaviour
 {
@@ -31,7 +32,17 @@ public class LoadMenu : MonoBehaviour
 
     void Start()
     {
-        if(!AndroidBackButton.gotogame)
+
+#if PLATFORM_ANDROID
+        if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
+        {
+            Permission.RequestUserPermission(Permission.FineLocation);
+        }
+#endif
+
+
+
+        if (!AndroidBackButton.gotogame)
         {
             main.enabled = true;
             game.enabled = false;

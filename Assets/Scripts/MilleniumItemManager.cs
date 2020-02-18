@@ -48,42 +48,8 @@ public class MilleniumItemManager : MonoBehaviour {
 			if (Physics.Raycast (ray, out hit, 100f)) {
 				if (hit.transform.tag.Substring(0,2) == "MI") {
 
-				 itemindex = Int32.Parse(hit.transform.tag.Substring(2));
-					
-				
-					Player player = new Player();
-					RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json").Then(response =>
-					{
+				    itemindex = Int32.Parse(hit.transform.tag.Substring(2));
 
-						player = response;
-						googleSignIn.locationdata[itemindex] = true;
-						switch (itemindex)
-						{
-							case 0: player.mlyny = true;  break;
-							case 1: player.ukf= true; break;
-							case 2: player.marian = true; break;
-							case 3: player.kniznica = true; break;
-							case 4: player.amfiteater = true; break;
-							case 5: player.pyramida = true; break;
-							case 6: player.agro = true; break;
-							case 7: player.kalvaria = true; break;
-							case 8: player.hala = true; break;
-							case 9: player.tesco = true; break;
-							case 10: player.hidepark = true; break;
-							case 11: player.zaba = true; break;
-							case 12: player.kostol = true; break;
-							case 13: player.hotel = true; break;
-							case 14: player.mostna = true; break;
-							case 15: player.fontana = true; break;
-							case 16: player.hrad = true; break;
-							case 17: player.corgon = true; break;
-							case 18: player.lavicka = true; break;
-							case 19: player.epicure = true; break;
-							case 20: player.spu = true; break;
-						}
-
-						RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
-					});
 					MilleniumPuzzle item = hit.transform.GetComponent<MilleniumPuzzle> ();
 					Destroy(item);
                     FlipCard(item.milleniumType);
@@ -99,18 +65,13 @@ public class MilleniumItemManager : MonoBehaviour {
 
 	public void SpawnItems() {
 
-		itemindex = 100;
 		for(int i = 0; i < count; i++)
 		{
 
 			if (googleSignIn.locationdata[i] == false && spawnedItem[i] == false)
 			{
-
-
 				if(tileManager.getLat - itemLats[i] < 0.003f && tileManager.getLat - itemLats[i] > -0.003f && tileManager.getLon - itemLons[i] < 0.00103f && tileManager.getLon - itemLons[i] > -0.00103f)
 				{
-
-				
 						MilleniumItemType type = (MilleniumItemType)(int)UnityEngine.Random.Range(0, Enum.GetValues(typeof(MilleniumItemType)).Length);
 
 
@@ -120,8 +81,6 @@ public class MilleniumItemManager : MonoBehaviour {
 
 						float newLat = tileManager.getLat + UnityEngine.Random.Range(-0.0001f, 0.0001f);
 						float newLon = tileManager.getLon + UnityEngine.Random.Range(-0.0001f, 0.0001f);
-
-						
 
 						if(newLat == previousLat || newLon == previousLon)
 					{
@@ -141,7 +100,6 @@ public class MilleniumItemManager : MonoBehaviour {
 			    }
 		}
 		}
-
 	}
 
 

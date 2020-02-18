@@ -179,20 +179,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 39976ba8a27306b4da99c71058683b58, type: 3}
-    m_FontSize: 100
+    m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 50
-    m_MaxSize: 100
+    m_MinSize: 20
+    m_MaxSize: 75
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: 'CONGRATULATIONS
-
-'
+  m_Text: CONGRATULATIONS
 --- !u!222 &179429372
 CanvasRenderer:
   m_ObjectHideFlags: 0

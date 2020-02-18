@@ -55,7 +55,33 @@ namespace Assets.Scripts
             {
 
                 player = response;
-                
+
+                googleSignIn.locationdata[MilleniumItemManager.itemindex] = true;
+                switch (MilleniumItemManager.itemindex)
+                {
+                    case 0: player.mlyny = true; break;
+                    case 1: player.ukf = true; break;
+                    case 2: player.marian = true; break;
+                    case 3: player.kniznica = true; break;
+                    case 4: player.amfiteater = true; break;
+                    case 5: player.pyramida = true; break;
+                    case 6: player.agro = true; break;
+                    case 7: player.kalvaria = true; break;
+                    case 8: player.hala = true; break;
+                    case 9: player.tesco = true; break;
+                    case 10: player.hidepark = true; break;
+                    case 11: player.zaba = true; break;
+                    case 12: player.kostol = true; break;
+                    case 13: player.hotel = true; break;
+                    case 14: player.mostna = true; break;
+                    case 15: player.fontana = true; break;
+                    case 16: player.hrad = true; break;
+                    case 17: player.corgon = true; break;
+                    case 18: player.lavicka = true; break;
+                    case 19: player.epicure = true; break;
+                    case 20: player.spu = true; break;
+                }
+
                 switch (random)
                 {
                     case 0: FlipCard.obtained_card_string = "You´ve obtained Blue Eyes White Dragon"; player.blue_acquired = true;  break;
@@ -81,9 +107,6 @@ namespace Assets.Scripts
                     case 20: FlipCard.obtained_card_string = "You´ve obtained Yubel"; player.yubel_acquired = true;  break;
 
                 }
-
-            
-
                 RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);
 
 
