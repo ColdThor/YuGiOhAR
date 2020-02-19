@@ -68,13 +68,19 @@ public class AndroidBackButton : MonoBehaviour
 
                 if (SceneIndex == 3)
             {
-                SceneManager.LoadScene(0);
+
+
                 gotogame = true;
+                SceneManager.LoadScene(0);
                 var music = PlayerPrefs.GetString("Music", "Default value");
+
+
                 if (music.Equals("yes"))
                 {
+                    DiscoveryMusic.Instance.gameObject.GetComponent<AudioSource>().Stop();
                     ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().UnPause();
                 }
+
             }
 
 

@@ -49,9 +49,9 @@ public class TileManager : MonoBehaviour {
 			yield return new WaitForSeconds (1f);
 		}
 
-        ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
+		
 
-        Input.location.Start(10f, 5f);
+		Input.location.Start(10f, 5f);
 		
 
 		int maxWait = 20;

@@ -84,27 +84,27 @@ namespace Assets.Scripts
 
                 switch (random)
                 {
-                    case 0: FlipCard.obtained_card_string = "You´ve obtained Blue Eyes White Dragon"; player.blue_acquired = true;  break;
-                    case 1: FlipCard.obtained_card_string = "You´ve obtained Dark Magician"; player.dark_acquired = true;  break;
-                    case 2: FlipCard.obtained_card_string = "You´ve obtained Summoned Skull"; player.skull_acquired = true;  break;
-                    case 3: FlipCard.obtained_card_string = "You´ve obtained Gaia the Fierce Knight"; player.gaia_acquired = true;  break;
-                    case 4: FlipCard.obtained_card_string = "You´ve obtained Obelisk the Tormentor"; player.obelisk_acquired = true;  break;
-                    case 5: FlipCard.obtained_card_string = "You´ve obtained Elemental Hero Neos"; player.neos_acquired = true;  break;
-                    case 6: FlipCard.obtained_card_string = "You´ve obtained Ancient Gear Golem"; player.golem_acquired = true;  break;
-                    case 7: FlipCard.obtained_card_string = "You´ve obtained Celtic Warrior"; player.celtic_acquired = true;  break;
-                    case 8: FlipCard.obtained_card_string = "You´ve obtained Cyber Dragon"; player.cyber_acquired = true;  break;
-                    case 9: FlipCard.obtained_card_string = "You´ve obtained Dark Magician Girl"; player.girl_acquired = true;  break;
-                    case 10: FlipCard.obtained_card_string = "You´ve obtained Destiny Hero Dreadmaster"; player.dreadmaster_acquired = true;  break;
-                    case 11: FlipCard.obtained_card_string = "You´ve obtained Gate Guardian"; player.gate_acquired = true;  break;
-                    case 12: FlipCard.obtained_card_string = "You´ve obtained Harpie Lady Sisters"; player.harpie_acquired = true;  break;
-                    case 13: FlipCard.obtained_card_string = "You´ve obtained Rainbow Dragon"; player.rainbow_acquired = true;  break;
-                    case 14: FlipCard.obtained_card_string = "You´ve obtained Red Eyes Black Dragon"; player.red_acquired = true;  break;
-                    case 15: FlipCard.obtained_card_string = "You´ve obtained King Rex"; player.rex_acquired = true;  break;
-                    case 16: FlipCard.obtained_card_string = "You´ve obtained Slifer the Sky Dragon"; player.slifer_acquired = true;  break;
-                    case 17: FlipCard.obtained_card_string = "You´ve obtained Time Wizard"; player.time_acquired = true;  break;
-                    case 18: FlipCard.obtained_card_string = "You´ve obtained Water Dragon"; player.water_acquired = true;  break;
-                    case 19: FlipCard.obtained_card_string = "You´ve obtained Winged Dragon of Ra"; player.ra_acquired = true;  break;
-                    case 20: FlipCard.obtained_card_string = "You´ve obtained Yubel"; player.yubel_acquired = true;  break;
+                    case 0: FlipCard.obtained_card_string = "You've obtained Blue Eyes White Dragon"; player.blue_acquired = true;  break;
+                    case 1: FlipCard.obtained_card_string = "You've obtained Dark Magician"; player.dark_acquired = true;  break;
+                    case 2: FlipCard.obtained_card_string = "You've obtained Summoned Skull"; player.skull_acquired = true;  break;
+                    case 3: FlipCard.obtained_card_string = "You've obtained Gaia the Fierce Knight"; player.gaia_acquired = true;  break;
+                    case 4: FlipCard.obtained_card_string = "You've obtained Obelisk the Tormentor"; player.obelisk_acquired = true;  break;
+                    case 5: FlipCard.obtained_card_string = "You've obtained Elemental Hero Neos"; player.neos_acquired = true;  break;
+                    case 6: FlipCard.obtained_card_string = "You've obtained Ancient Gear Golem"; player.golem_acquired = true;  break;
+                    case 7: FlipCard.obtained_card_string = "You've obtained Celtic Warrior"; player.celtic_acquired = true;  break;
+                    case 8: FlipCard.obtained_card_string = "You've obtained Cyber Dragon"; player.cyber_acquired = true;  break;
+                    case 9: FlipCard.obtained_card_string = "You've obtained Dark Magician Girl"; player.girl_acquired = true;  break;
+                    case 10: FlipCard.obtained_card_string = "You've obtained Destiny Hero Dreadmaster"; player.dreadmaster_acquired = true;  break;
+                    case 11: FlipCard.obtained_card_string = "You've obtained Gate Guardian"; player.gate_acquired = true;  break;
+                    case 12: FlipCard.obtained_card_string = "You've obtained Harpie Lady Sisters"; player.harpie_acquired = true;  break;
+                    case 13: FlipCard.obtained_card_string = "You've obtained Rainbow Dragon"; player.rainbow_acquired = true;  break;
+                    case 14: FlipCard.obtained_card_string = "You've obtained Red Eyes Black Dragon"; player.red_acquired = true;  break;
+                    case 15: FlipCard.obtained_card_string = "You've obtained King Rex"; player.rex_acquired = true;  break;
+                    case 16: FlipCard.obtained_card_string = "You've obtained Slifer the Sky Dragon"; player.slifer_acquired = true;  break;
+                    case 17: FlipCard.obtained_card_string = "You've obtained Time Wizard"; player.time_acquired = true;  break;
+                    case 18: FlipCard.obtained_card_string = "You've obtained Water Dragon"; player.water_acquired = true;  break;
+                    case 19: FlipCard.obtained_card_string = "You've obtained Winged Dragon of Ra"; player.ra_acquired = true;  break;
+                    case 20: FlipCard.obtained_card_string = "You've obtained Yubel"; player.yubel_acquired = true;  break;
 
                 }
                 RestClient.Put("https://yu-gi-oh-ar.firebaseio.com/" + googleSignIn.userid + ".json", player);

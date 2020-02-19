@@ -19,10 +19,28 @@ public class MilleniumItemManager : MonoBehaviour {
 	private float[] itemLons;
 	private bool[] spawnedItem;
 
+
 	private float previousLat, previousLon;
 
 
 	void Start () {
+	
+
+		var music = PlayerPrefs.GetString("Music", "Default value");
+
+
+	   if (music.Equals("yes"))
+	   {
+			if(!DiscoveryMusic.Instance.gameObject.GetComponent<AudioSource>().isPlaying)
+			{
+				DiscoveryMusic.Instance.gameObject.GetComponent<AudioSource>().Play();
+			}
+			
+			ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Pause();
+			
+	   } 
+
+
 		itemLats = new float[count];
 		itemLons = new float[count];
 		spawnedItem = new bool[count];
@@ -32,10 +50,7 @@ public class MilleniumItemManager : MonoBehaviour {
 	}
 
 
-	void Awake()
-	{
-		
-	}
+	
 
 	void Update () {
 		SpawnItems();
@@ -52,7 +67,7 @@ public class MilleniumItemManager : MonoBehaviour {
 
 					MilleniumPuzzle item = hit.transform.GetComponent<MilleniumPuzzle> ();
 					Destroy(item);
-                    FlipCard(item.milleniumType);
+					FlipCard(item.milleniumType);
 				}
 			}
 		}
