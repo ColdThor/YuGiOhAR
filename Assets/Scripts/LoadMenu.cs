@@ -40,6 +40,23 @@ public class LoadMenu : MonoBehaviour
         }
 #endif
 
+        var music = PlayerPrefs.GetString("Music", "Default value");
+        if (music.Equals("yes"))
+        {
+            if (DiscoveryMusic.Instance.gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                DiscoveryMusic.Instance.gameObject.GetComponent<AudioSource>().Stop();
+            }
+
+
+            if (!ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                ThemeSongScript.Instance.gameObject.GetComponent<AudioSource>().Play();
+            }
+
+         
+
+        }
 
 
         if (!AndroidBackButton.gotogame)
