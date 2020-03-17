@@ -18,25 +18,26 @@ namespace Assets.Scripts
 
             cards = new Sprite[21];
 
-            cards[0] = Resources.Load<Sprite>("blue_eyes_white_dragon");
+
+            cards[0] = Resources.Load<Sprite>("blue_eyes");
             cards[1] = Resources.Load<Sprite>("dark_magician");
             cards[2] = Resources.Load<Sprite>("summoned_skull");
             cards[3] = Resources.Load<Sprite>("gaia");
             cards[4] = Resources.Load<Sprite>("obelisk");
             cards[5] = Resources.Load<Sprite>("neos");
             cards[6] = Resources.Load<Sprite>("ancient_gear_golem");
-            cards[7] = Resources.Load<Sprite>("celtic_warrior");
-            cards[8] = Resources.Load<Sprite>("cyber_dragon");
-            cards[9] = Resources.Load<Sprite>("dark_magician_girl");
-            cards[10] = Resources.Load<Sprite>("dreadmaster");
-            cards[11] = Resources.Load<Sprite>("gate_guard");
-            cards[12] = Resources.Load<Sprite>("harpie_lady");
-            cards[13] = Resources.Load<Sprite>("rainbow_dragon");
-            cards[14] = Resources.Load<Sprite>("red_eyes");
-            cards[15] = Resources.Load<Sprite>("rex");
-            cards[16] = Resources.Load<Sprite>("slifer");
-            cards[17] = Resources.Load<Sprite>("time_wizard");
-            cards[18] = Resources.Load<Sprite>("water_dragon");
+            cards[7] = Resources.Load<Sprite>("archfiend");
+            cards[8] = Resources.Load<Sprite>("black_luster");
+            cards[9] = Resources.Load<Sprite>("black_rose");
+            cards[10] = Resources.Load<Sprite>("cyber_end");
+            cards[11] = Resources.Load<Sprite>("d_magician_girl");
+            cards[12] = Resources.Load<Sprite>("drill");
+            cards[13] = Resources.Load<Sprite>("elemental_hero");
+            cards[14] = Resources.Load<Sprite>("plasma");
+            cards[15] = Resources.Load<Sprite>("rainbow_dragon");
+            cards[16] = Resources.Load<Sprite>("red_eyes");
+            cards[17] = Resources.Load<Sprite>("stardust");
+            cards[18] = Resources.Load<Sprite>("utopia");
             cards[19] = Resources.Load<Sprite>("winged_dragon");
             cards[20] = Resources.Load<Sprite>("yubel");
 
@@ -84,25 +85,25 @@ namespace Assets.Scripts
 
                 switch (random)
                 {
-                    case 0: FlipCard.obtained_card_string = "You've obtained Blue Eyes White Dragon"; player.blue_acquired = true;  break;
+                    case 0: FlipCard.obtained_card_string = "You've obtained Blue-Eyes White Dragon"; player.blue_acquired = true;  break;
                     case 1: FlipCard.obtained_card_string = "You've obtained Dark Magician"; player.dark_acquired = true;  break;
                     case 2: FlipCard.obtained_card_string = "You've obtained Summoned Skull"; player.skull_acquired = true;  break;
                     case 3: FlipCard.obtained_card_string = "You've obtained Gaia the Fierce Knight"; player.gaia_acquired = true;  break;
                     case 4: FlipCard.obtained_card_string = "You've obtained Obelisk the Tormentor"; player.obelisk_acquired = true;  break;
                     case 5: FlipCard.obtained_card_string = "You've obtained Elemental Hero Neos"; player.neos_acquired = true;  break;
                     case 6: FlipCard.obtained_card_string = "You've obtained Ancient Gear Golem"; player.golem_acquired = true;  break;
-                    case 7: FlipCard.obtained_card_string = "You've obtained Celtic Warrior"; player.celtic_acquired = true;  break;
-                    case 8: FlipCard.obtained_card_string = "You've obtained Cyber Dragon"; player.cyber_acquired = true;  break;
-                    case 9: FlipCard.obtained_card_string = "You've obtained Dark Magician Girl"; player.girl_acquired = true;  break;
-                    case 10: FlipCard.obtained_card_string = "You've obtained Destiny Hero Dreadmaster"; player.dreadmaster_acquired = true;  break;
-                    case 11: FlipCard.obtained_card_string = "You've obtained Gate Guardian"; player.gate_acquired = true;  break;
-                    case 12: FlipCard.obtained_card_string = "You've obtained Harpie Lady Sisters"; player.harpie_acquired = true;  break;
-                    case 13: FlipCard.obtained_card_string = "You've obtained Rainbow Dragon"; player.rainbow_acquired = true;  break;
-                    case 14: FlipCard.obtained_card_string = "You've obtained Red Eyes Black Dragon"; player.red_acquired = true;  break;
-                    case 15: FlipCard.obtained_card_string = "You've obtained King Rex"; player.rex_acquired = true;  break;
-                    case 16: FlipCard.obtained_card_string = "You've obtained Slifer the Sky Dragon"; player.slifer_acquired = true;  break;
-                    case 17: FlipCard.obtained_card_string = "You've obtained Time Wizard"; player.time_acquired = true;  break;
-                    case 18: FlipCard.obtained_card_string = "You've obtained Water Dragon"; player.water_acquired = true;  break;
+                    case 7: FlipCard.obtained_card_string = "You've obtained Red Dragon Archfiend"; player.archfiend = true;  break;
+                    case 8: FlipCard.obtained_card_string = "You've obtained Black Luster Soldier"; player.black_luster = true;  break;
+                    case 9: FlipCard.obtained_card_string = "You've obtained Black Rose Dragon"; player.black_rose = true;  break;
+                    case 10: FlipCard.obtained_card_string = "You've obtained Cyber End Dragon"; player.cyber_end = true;  break;
+                    case 11: FlipCard.obtained_card_string = "You've obtained Dark Magician Girl"; player.dark_magician_girl = true;  break;
+                    case 12: FlipCard.obtained_card_string = "You've obtained Super Vehicroid Jumbo Drill"; player.drill = true;  break;
+                    case 13: FlipCard.obtained_card_string = "You've obtained Elemental Hero Flame Wingman"; player.flame_wingman = true;  break;
+                    case 14: FlipCard.obtained_card_string = "You've obtained Destiny Hero Plasma"; player.plasma = true;  break;
+                    case 15: FlipCard.obtained_card_string = "You've obtained Rainbow Dragon"; player.rainbow_dragon = true;  break;
+                    case 16: FlipCard.obtained_card_string = "You've obtained Red-Eyes Black Dragon"; player.red_eyes = true;  break;
+                    case 17: FlipCard.obtained_card_string = "You've obtained Stardust Spark Dragon"; player.stardust = true;  break;
+                    case 18: FlipCard.obtained_card_string = "You've obtained Number 39: Utopia"; player.utopia = true;  break;
                     case 19: FlipCard.obtained_card_string = "You've obtained Winged Dragon of Ra"; player.ra_acquired = true;  break;
                     case 20: FlipCard.obtained_card_string = "You've obtained Yubel"; player.yubel_acquired = true;  break;
 

@@ -200,18 +200,18 @@ public class googleSignIn : MonoBehaviour
             if (player.obelisk_acquired == false) { userdata[4] = false; } else { userdata[4] = true; }
             if (player.neos_acquired == false) { userdata[5] = false; } else { userdata[5] = true; }
             if (player.golem_acquired == false) { userdata[6] = false; } else { userdata[6] = true; }
-            if (player.celtic_acquired == false) { userdata[7] = false; } else { userdata[7] = true; }
-            if (player.cyber_acquired == false) { userdata[8] = false; } else { userdata[8] = true; }
-            if (player.girl_acquired == false) { userdata[9] = false; } else { userdata[9] = true; }
-            if (player.dreadmaster_acquired == false) { userdata[10] = false; } else { userdata[10] = true; }
-            if (player.gate_acquired == false) { userdata[11] = false; } else { userdata[11] = true; }
-            if (player.harpie_acquired == false) { userdata[12] = false; } else { userdata[12] = true; }
-            if (player.rainbow_acquired == false) { userdata[13] = false; } else { userdata[13] = true; }
-            if (player.red_acquired == false) { userdata[14] = false; } else { userdata[14] = true; }
-            if (player.rex_acquired == false) { userdata[15] = false; } else { userdata[15] = true; }
-            if (player.slifer_acquired == false) { userdata[16] = false; } else { userdata[16] = true; }
-            if (player.time_acquired == false) { userdata[17] = false; } else { userdata[17] = true; }
-            if (player.water_acquired == false) { userdata[18] = false; } else { userdata[18] = true; }
+            if (player.archfiend == false) { userdata[7] = false; } else { userdata[7] = true; }
+            if (player.black_luster == false) { userdata[8] = false; } else { userdata[8] = true; }
+            if (player.black_rose == false) { userdata[9] = false; } else { userdata[9] = true; }
+            if (player.cyber_end == false) { userdata[10] = false; } else { userdata[10] = true; }
+            if (player.dark_magician_girl == false) { userdata[11] = false; } else { userdata[11] = true; }
+            if (player.drill == false) { userdata[12] = false; } else { userdata[12] = true; }
+            if (player.flame_wingman == false) { userdata[13] = false; } else { userdata[13] = true; }
+            if (player.plasma == false) { userdata[14] = false; } else { userdata[14] = true; }
+            if (player.rainbow_dragon == false) { userdata[15] = false; } else { userdata[15] = true; }
+            if (player.red_eyes == false) { userdata[16] = false; } else { userdata[16] = true; }
+            if (player.stardust == false) { userdata[17] = false; } else { userdata[17] = true; }
+            if (player.utopia == false) { userdata[18] = false; } else { userdata[18] = true; }
             if (player.ra_acquired == false) { userdata[19] = false; } else { userdata[19] = true; }
             if (player.yubel_acquired == false) { userdata[20] = false; } else { userdata[20] = true; }
 
@@ -273,7 +273,11 @@ public class googleSignIn : MonoBehaviour
             }
             loadingdone = true;
 
-          
+            if(FBuser.DisplayName.ToString()==null)
+            {
+                Player new_player = new Player();
+                getPlayer(new_player);
+            }
 
             nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
         });
