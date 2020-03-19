@@ -192,6 +192,12 @@ public class googleSignIn : MonoBehaviour
         locationdata = new Boolean[21];
         RestClient.Get<Player>("https://yu-gi-oh-ar.firebaseio.com/" + userid + ".json").Then(response =>
         {
+            if(response == null)
+            {
+                getPlayer(player);
+            }
+
+
             player = response;
             if (player.blue_acquired == false) { userdata[0] = false; } else { userdata[0] = true; }
             if (player.dark_acquired == false) { userdata[1] = false; } else { userdata[1] = true; }
@@ -273,14 +279,12 @@ public class googleSignIn : MonoBehaviour
             }
             loadingdone = true;
 
-            if(FBuser.DisplayName.ToString()==null)
-            {
-                Player new_player = new Player();
-                getPlayer(new_player);
-            }
-
+         
+      
             nametext.text = "WELCOME " + FBuser.DisplayName.ToString();
         });
+
+      
 
     }
 

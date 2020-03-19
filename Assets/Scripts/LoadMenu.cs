@@ -271,6 +271,11 @@ public class LoadMenu : MonoBehaviour
                 countdownValue = 0;
                 collection.enabled = true;
             }
+            if(currCountdownValue==0)
+            {
+                collection.enabled = true;
+            }
+
         }
     }
 
